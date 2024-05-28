@@ -1,0 +1,15 @@
+this box runs an ssh and a web service
+
+on the website there is a js file
+in the url:
+'/cdn-cgi/login/'
+
+thus going there is a login,
+with a guest login
+
+after login in
+there are multiple parts of a site
+
+and the account url has a parameter for what user we are,
+changing this 2 to 1
+shows the id of the admin user and email
