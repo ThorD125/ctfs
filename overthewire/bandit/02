@@ -1,0 +1,3 @@
+ssh bandit2@bandit.labs.overthewire.org -p 2220 #rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi
+
+cat spaces\ in\ this\ filename

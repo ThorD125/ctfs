@@ -1,0 +1,4 @@
+ssh bandit5@bandit.labs.overthewire.org -p 2220 #lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
+
+find . -type f -size 1033c
+cat ./inhere/maybehere07/.file2

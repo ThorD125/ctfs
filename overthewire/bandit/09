@@ -1,0 +1,3 @@
+ssh bandit9@bandit.labs.overthewire.org -p 2220 #EN632PlfYiZbn3PhVK3XOGSlNInNE00t
+
+strings data.txt | grep =====

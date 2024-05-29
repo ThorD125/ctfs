@@ -1,0 +1,1 @@
+ssh bandit{0}@bandit.labs.overthewire.org -p 2220 #{password}

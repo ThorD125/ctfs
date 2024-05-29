@@ -1,0 +1,4 @@
+ssh bandit3@bandit.labs.overthewire.org -p 2220 #aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG
+
+ls -a inhere
+cat inhere/.hidden
