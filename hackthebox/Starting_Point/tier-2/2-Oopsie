@@ -24,7 +24,7 @@ checking the environment
 we find in the '/cdn-cgi/login/', there is one nice file, db.php
 it conains the password and a table for the user robert
 
-loging in through ssh succeeds witht his password
+logging in through ssh succeeds witht his password
 
 after login in
 we can see the user robert has a group called "bugtracker"
@@ -49,4 +49,4 @@ change path,
 `echo /bin/sh > /tmp/cat
 chmod +x /tmp/cat
 export PATH=/tmp:$PATH
-{fouund_file}`
+{found_file}`
