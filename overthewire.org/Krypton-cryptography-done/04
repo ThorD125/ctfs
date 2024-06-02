@@ -1,0 +1,9 @@
+ssh krypton4@krypton.labs.overthewire.org -p 2231 #BRUTE
+
+cd /krypton/krypton4
+
+apperently the key is 6long
+
+using https://www.guballa.de/vigenere-solver
+we can crack the test to find the key is frekey
+
