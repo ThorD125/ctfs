@@ -1,0 +1,11 @@
+http://natas5.natas.labs.overthewire.org/
+
+natas5:Z0NsrtIkJoKALBCLi5eqFfcRN82Au2oD
+
+accessing this page
+says that where not logged in
+
+checking the cookies there is a cookie logedin: 0
+changing it to 1
+
+gets us the password
