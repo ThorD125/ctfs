@@ -1,0 +1,9 @@
+ssh bandit27@bandit.labs.overthewire.org -p 2220 #YnQpBuifNMas1hcUFk70ZmqkhUU2EuaS
+
+mkdir /tmp/mytempdfopldf
+
+cd /tmp/mytempdfopldf
+
+git init
+git pull ssh://bandit27-git@localhost:2220/home/bandit27-git/repo
+cat readme

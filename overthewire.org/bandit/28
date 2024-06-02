@@ -1,0 +1,19 @@
+ssh bandit28@bandit.labs.overthewire.org -p 2220 #AVanL161y9rsbcJIsFHuw35rjaOM19nR
+
+
+mkdir /tmp/mytempdfopldf
+
+cd /tmp/mytempdfopldf
+
+git init
+git pull ssh://bandit28-git@localhost:2220/home/bandit28-git/repo
+cat readme
+
+
+this showd username and xxxxx for password
+using git log
+we see commit to resolve this leak,
+git switch -c main
+git checkout f08b9cc63fa1a4602fb065257633c2dae6e5651b
+
+cat readme

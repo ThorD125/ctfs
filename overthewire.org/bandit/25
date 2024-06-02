@@ -1,0 +1,4 @@
+ssh bandit25@bandit.labs.overthewire.org -p 2220 #p7TaowMYrmu23Ol8hiZh9UvD0O9hpx8d
+
+
+cat bandit26.sshkey
