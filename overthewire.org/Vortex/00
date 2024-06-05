@@ -1,0 +1,51 @@
+import socket
+import struct
+
+# Define the server address and port
+server_address = 'vortex.labs.overthewire.org'
+port = 5842
+
+def receive_exactly(sock, n):
+    """ Helper function to receive exactly n bytes from the socket """
+    data = b''
+    while len(data) < n:
+        packet = sock.recv(n - len(data))
+        if not packet:
+            return None
+        data += packet
+    return data
+
+# Create a socket
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+try:
+    # Connect to the server
+    sock.connect((server_address, port))
+
+    # Read exactly 16 bytes (4 unsigned integers)
+    data = receive_exactly(sock, 16)
+    if data is None:
+        print("Failed to receive the data")
+        sock.close()
+        exit(1)
+    
+    # Unpack the 4 unsigned integers from network byte order to host byte order
+    integers = struct.unpack('IIII', data)
+    
+    # Calculate the sum of the integers
+    total = sum(integers) % (2**32)
+    
+    # Send the result back to the server as an unsigned 32-bit integer in host byte order
+    sock.sendall(struct.pack('I', total))
+    
+    # Receive the response from the server
+    response = sock.recv(1024)  # Adjust size as needed
+    
+    # Print the response (username and password)
+    print(response.decode())
+
+finally:
+    # Close the socket
+    sock.close()
+
+#vortex1:Gq#qu3bF3
