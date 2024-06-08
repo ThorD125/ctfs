@@ -1,15 +1,5 @@
 # This is a file i'll include things i didn't know and or find after reading some write-ups
 
-## Tools
-
-- flask-unsign
-- base-crack
-
-## Urls
-
-- `https://dogbolt.org/`
-- `https://appetize.io/`
-
 ## apps
 
 - `https://play.google.com/store/apps/details?id=com.arara.q`

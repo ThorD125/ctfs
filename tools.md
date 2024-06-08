@@ -1,3 +1,5 @@
+# Tools
+
 ping
 nmap
 subfinder
@@ -12,3 +14,6 @@ metasploit
 john
 hashcat
 xfreerdp
+ilspy
+flask-unsign
+base-crack
