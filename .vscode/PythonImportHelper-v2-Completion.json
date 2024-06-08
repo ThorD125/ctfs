@@ -1,5 +1,31 @@
 [
     {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
+        "label": "Fernet",
+        "importPath": "cryptography.fernet",
+        "description": "cryptography.fernet",
+        "isExtraImport": true,
+        "detail": "cryptography.fernet",
+        "documentation": {}
+    },
+    {
         "label": "random",
         "kind": 6,
         "isExtraImport": true,
@@ -9,57 +35,66 @@
         "documentation": {}
     },
     {
-        "label": "str_xor",
-        "kind": 2,
-        "importPath": "files.fixme1",
-        "description": "files.fixme1",
-        "peekOfCode": "def str_xor(secret, key):\n    #extend key to secret length\n    new_key = key\n    i = 0\n    while len(new_key) < len(secret):\n        new_key = new_key + key[i]\n        i = (i + 1) % len(key)        \n    return \"\".join([chr(ord(secret_c) ^ ord(new_key_c)) for (secret_c,new_key_c) in zip(secret,new_key)])\nflag_enc = chr(0x15) + chr(0x07) + chr(0x08) + chr(0x06) + chr(0x27) + chr(0x21) + chr(0x23) + chr(0x15) + chr(0x5a) + chr(0x07) + chr(0x00) + chr(0x46) + chr(0x0b) + chr(0x1a) + chr(0x5a) + chr(0x1d) + chr(0x1d) + chr(0x2a) + chr(0x06) + chr(0x1c) + chr(0x5a) + chr(0x5c) + chr(0x55) + chr(0x40) + chr(0x3a) + chr(0x5f) + chr(0x53) + chr(0x5b) + chr(0x57) + chr(0x41) + chr(0x57) + chr(0x08) + chr(0x5c) + chr(0x14)\nflag = str_xor(flag_enc, 'enkidu')",
-        "detail": "files.fixme1",
+        "label": "usage_msg",
+        "kind": 5,
+        "importPath": "files.ende",
+        "description": "files.ende",
+        "peekOfCode": "usage_msg = \"Usage: \"+ sys.argv[0] +\" (-e/-d) [file]\"\nhelp_msg = usage_msg + \"\\n\" +\\\n        \"Examples:\\n\" +\\\n        \"  To decrypt a file named 'pole.txt', do: \" +\\\n        \"'$ python \"+ sys.argv[0] +\" -d pole.txt'\\n\"\nif len(sys.argv) < 2 or len(sys.argv) > 4:\n    print(usage_msg)\n    sys.exit(1)\nif sys.argv[1] == \"-e\":\n    if len(sys.argv) < 4:",
+        "detail": "files.ende",
         "documentation": {}
     },
     {
-        "label": "flag_enc",
+        "label": "help_msg",
         "kind": 5,
-        "importPath": "files.fixme1",
-        "description": "files.fixme1",
-        "peekOfCode": "flag_enc = chr(0x15) + chr(0x07) + chr(0x08) + chr(0x06) + chr(0x27) + chr(0x21) + chr(0x23) + chr(0x15) + chr(0x5a) + chr(0x07) + chr(0x00) + chr(0x46) + chr(0x0b) + chr(0x1a) + chr(0x5a) + chr(0x1d) + chr(0x1d) + chr(0x2a) + chr(0x06) + chr(0x1c) + chr(0x5a) + chr(0x5c) + chr(0x55) + chr(0x40) + chr(0x3a) + chr(0x5f) + chr(0x53) + chr(0x5b) + chr(0x57) + chr(0x41) + chr(0x57) + chr(0x08) + chr(0x5c) + chr(0x14)\nflag = str_xor(flag_enc, 'enkidu')\nprint('That is correct! Here\\'s your flag: ' + flag)",
-        "detail": "files.fixme1",
-        "documentation": {}
-    },
-    {
-        "label": "flag",
-        "kind": 5,
-        "importPath": "files.fixme1",
-        "description": "files.fixme1",
-        "peekOfCode": "flag = str_xor(flag_enc, 'enkidu')\nprint('That is correct! Here\\'s your flag: ' + flag)",
-        "detail": "files.fixme1",
+        "importPath": "files.ende",
+        "description": "files.ende",
+        "peekOfCode": "help_msg = usage_msg + \"\\n\" +\\\n        \"Examples:\\n\" +\\\n        \"  To decrypt a file named 'pole.txt', do: \" +\\\n        \"'$ python \"+ sys.argv[0] +\" -d pole.txt'\\n\"\nif len(sys.argv) < 2 or len(sys.argv) > 4:\n    print(usage_msg)\n    sys.exit(1)\nif sys.argv[1] == \"-e\":\n    if len(sys.argv) < 4:\n        sim_sala_bim = input(\"Please enter the password:\")",
+        "detail": "files.ende",
         "documentation": {}
     },
     {
         "label": "str_xor",
         "kind": 2,
-        "importPath": "files.fixme2",
-        "description": "files.fixme2",
-        "peekOfCode": "def str_xor(secret, key):\n    #extend key to secret length\n    new_key = key\n    i = 0\n    while len(new_key) < len(secret):\n        new_key = new_key + key[i]\n        i = (i + 1) % len(key)        \n    return \"\".join([chr(ord(secret_c) ^ ord(new_key_c)) for (secret_c,new_key_c) in zip(secret,new_key)])\nflag_enc = chr(0x15) + chr(0x07) + chr(0x08) + chr(0x06) + chr(0x27) + chr(0x21) + chr(0x23) + chr(0x15) + chr(0x58) + chr(0x18) + chr(0x11) + chr(0x41) + chr(0x09) + chr(0x5f) + chr(0x1f) + chr(0x10) + chr(0x3b) + chr(0x1b) + chr(0x55) + chr(0x1a) + chr(0x34) + chr(0x5d) + chr(0x51) + chr(0x40) + chr(0x54) + chr(0x09) + chr(0x05) + chr(0x04) + chr(0x57) + chr(0x1b) + chr(0x11) + chr(0x31) + chr(0x0e) + chr(0x51) + chr(0x5c) + chr(0x44) + chr(0x51) + chr(0x0a) + chr(0x5b) + chr(0x5a) + chr(0x19)\nflag = str_xor(flag_enc, 'enkidu')",
-        "detail": "files.fixme2",
+        "importPath": "files.serpentine",
+        "description": "files.serpentine",
+        "peekOfCode": "def str_xor(secret, key):\n    #extend key to secret length\n    new_key = key\n    i = 0\n    while len(new_key) < len(secret):\n        new_key = new_key + key[i]\n        i = (i + 1) % len(key)        \n    return \"\".join([chr(ord(secret_c) ^ ord(new_key_c)) for (secret_c,new_key_c) in zip(secret,new_key)])\nflag_enc = chr(0x15) + chr(0x07) + chr(0x08) + chr(0x06) + chr(0x27) + chr(0x21) + chr(0x23) + chr(0x15) + chr(0x5c) + chr(0x01) + chr(0x57) + chr(0x2a) + chr(0x17) + chr(0x5e) + chr(0x5f) + chr(0x0d) + chr(0x3b) + chr(0x19) + chr(0x56) + chr(0x5b) + chr(0x5e) + chr(0x36) + chr(0x53) + chr(0x07) + chr(0x51) + chr(0x18) + chr(0x58) + chr(0x05) + chr(0x57) + chr(0x11) + chr(0x3a) + chr(0x0f) + chr(0x0e) + chr(0x59) + chr(0x06) + chr(0x4d) + chr(0x55) + chr(0x0c) + chr(0x0f) + chr(0x14)\nprint(str_xor(flag_enc, 'enkidu'))",
+        "detail": "files.serpentine",
+        "documentation": {}
+    },
+    {
+        "label": "print_flag",
+        "kind": 2,
+        "importPath": "files.serpentine",
+        "description": "files.serpentine",
+        "peekOfCode": "def print_flag():\n  flag = str_xor(flag_enc, 'enkidu')\n  print(flag)\ndef print_encouragement():\n  encouragements = ['You can do it!', 'Keep it up!', \n                    'Look how far you\\'ve come!']\n  choice = random.choice(range(0, len(encouragements)))\n  print('\\n-----------------------------------------------------')\n  print(encouragements[choice])\n  print('-----------------------------------------------------\\n\\n')",
+        "detail": "files.serpentine",
+        "documentation": {}
+    },
+    {
+        "label": "print_encouragement",
+        "kind": 2,
+        "importPath": "files.serpentine",
+        "description": "files.serpentine",
+        "peekOfCode": "def print_encouragement():\n  encouragements = ['You can do it!', 'Keep it up!', \n                    'Look how far you\\'ve come!']\n  choice = random.choice(range(0, len(encouragements)))\n  print('\\n-----------------------------------------------------')\n  print(encouragements[choice])\n  print('-----------------------------------------------------\\n\\n')\ndef main():\n  print(\n'''",
+        "detail": "files.serpentine",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "files.serpentine",
+        "description": "files.serpentine",
+        "peekOfCode": "def main():\n  print(\n'''\n    Y\n  .-^-.\n /     \\      .- ~ ~ -.\n()     ()    /   _ _   `.                     _ _ _\n \\_   _/    /  /     \\   \\                . ~  _ _  ~ .\n   | |     /  /       \\   \\             .' .~       ~-. `.\n   | |    /  /         )   )           /  /             `.`.",
+        "detail": "files.serpentine",
         "documentation": {}
     },
     {
         "label": "flag_enc",
         "kind": 5,
-        "importPath": "files.fixme2",
-        "description": "files.fixme2",
-        "peekOfCode": "flag_enc = chr(0x15) + chr(0x07) + chr(0x08) + chr(0x06) + chr(0x27) + chr(0x21) + chr(0x23) + chr(0x15) + chr(0x58) + chr(0x18) + chr(0x11) + chr(0x41) + chr(0x09) + chr(0x5f) + chr(0x1f) + chr(0x10) + chr(0x3b) + chr(0x1b) + chr(0x55) + chr(0x1a) + chr(0x34) + chr(0x5d) + chr(0x51) + chr(0x40) + chr(0x54) + chr(0x09) + chr(0x05) + chr(0x04) + chr(0x57) + chr(0x1b) + chr(0x11) + chr(0x31) + chr(0x0e) + chr(0x51) + chr(0x5c) + chr(0x44) + chr(0x51) + chr(0x0a) + chr(0x5b) + chr(0x5a) + chr(0x19)\nflag = str_xor(flag_enc, 'enkidu')\n# Check that flag is not empty\nif flag == \"\":\n  print('String XOR encountered a problem, quitting.')\nelse:\n  print('That is correct! Here\\'s your flag: ' + flag)",
-        "detail": "files.fixme2",
-        "documentation": {}
-    },
-    {
-        "label": "flag",
-        "kind": 5,
-        "importPath": "files.fixme2",
-        "description": "files.fixme2",
-        "peekOfCode": "flag = str_xor(flag_enc, 'enkidu')\n# Check that flag is not empty\nif flag == \"\":\n  print('String XOR encountered a problem, quitting.')\nelse:\n  print('That is correct! Here\\'s your flag: ' + flag)",
-        "detail": "files.fixme2",
+        "importPath": "files.serpentine",
+        "description": "files.serpentine",
+        "peekOfCode": "flag_enc = chr(0x15) + chr(0x07) + chr(0x08) + chr(0x06) + chr(0x27) + chr(0x21) + chr(0x23) + chr(0x15) + chr(0x5c) + chr(0x01) + chr(0x57) + chr(0x2a) + chr(0x17) + chr(0x5e) + chr(0x5f) + chr(0x0d) + chr(0x3b) + chr(0x19) + chr(0x56) + chr(0x5b) + chr(0x5e) + chr(0x36) + chr(0x53) + chr(0x07) + chr(0x51) + chr(0x18) + chr(0x58) + chr(0x05) + chr(0x57) + chr(0x11) + chr(0x3a) + chr(0x0f) + chr(0x0e) + chr(0x59) + chr(0x06) + chr(0x4d) + chr(0x55) + chr(0x0c) + chr(0x0f) + chr(0x14)\nprint(str_xor(flag_enc, 'enkidu'))\ndef print_flag():\n  flag = str_xor(flag_enc, 'enkidu')\n  print(flag)\ndef print_encouragement():\n  encouragements = ['You can do it!', 'Keep it up!', \n                    'Look how far you\\'ve come!']\n  choice = random.choice(range(0, len(encouragements)))\n  print('\\n-----------------------------------------------------')",
+        "detail": "files.serpentine",
         "documentation": {}
     }
 ]
