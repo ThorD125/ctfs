@@ -43,7 +43,7 @@ zip@john file.zip>hashes.lst
 john hashes.lst
 john hashes.lst --show
 
-hashcat
+hashcat -a 0 -m 20 hashfile /usr/share/wordlists/rockyou.txt
 
 xfreerdp /v:{IP} /u:{USER} /p:{PASSWORD}
 
@@ -54,5 +54,13 @@ nc
 ilspy
 
 dirbuster
-gobuster
-feroxbuster
+
+gobuster dir --url {ip} --wordlist /usr/share/wordlists/dirb/big.txt
+gobuster dns -d {domain} --wordlist /usr/share/wordlists/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt
+
+feroxbuster -u {ip}
+
+ffuf -w /usr/share/wordlists/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt -u http://{domain} -H 'Host: FUZZ.{domain}' -fw 4 -t 100
+ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt:FFUZ -u http://dev.devvortex.htb -H 'Host: http://dev.devvortex.htb/FFUZ' -ic -t 100
+
+
