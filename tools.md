@@ -21,9 +21,11 @@ mget *
 
 hydra -L users.txt -P pass.txt {IP} ssh
 
+ssh {user}@{ip}
 whoami
 id #default groups: audio video plugdev cdrom dip floppy netdev
 groups
+cat .bash_history
 
 pspy32 #spy tool, open it on a host, relogin on second terminal
 
@@ -62,5 +64,3 @@ feroxbuster -u {ip}
 
 ffuf -w /usr/share/wordlists/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt -u http://{domain} -H 'Host: FUZZ.{domain}' -fw 4 -t 100
 ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt:FFUZ -u http://dev.devvortex.htb -H 'Host: http://dev.devvortex.htb/FFUZ' -ic -t 100
-
-
