@@ -12,7 +12,7 @@ ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-m
 found the administrator page
 on this page we know it runs joomla
 
-here we can find the version and a list of the files
+here we can find the version and a list of the files:4.2.6
 /administrator/manifests/files/joomla.xml
 
 searching for the version there is a known exploit for it

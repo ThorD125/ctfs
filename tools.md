@@ -50,8 +50,8 @@ hashcat -a 0 -m 20 hashfile /usr/share/wordlists/rockyou.txt
 xfreerdp /v:{IP} /u:{USER} /p:{PASSWORD}
 
 flask-unsign
-metasploit
-nc
+msfconsole
+nc -lvnp 1234
 
 ilspy
 

