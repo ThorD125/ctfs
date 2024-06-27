@@ -85,9 +85,34 @@ See `https://game0v3r.vercel.app/blog/nahamconctf-miscellaneous`
 
 Very specific case but still interesting.
 
-### Make Self Extracting
+### Make Self Extracting Sccript
 
 If there is a file,
 Including the hex data of the file to extract,
 The following command can be used to write it to a file:
 `tail -n 75 self_extractor > result`
+
+### Iframe bruteforcing
+
+<code type="javascript">
+for (let index=0; index < 15; index++ ) {
+    const url = `${window.location.href}/pathtobruteforce/${index}`;
+    document.write(`${index}: ${url}`);
+    document.write(`<iframe sandbox style="width: 100%" src="${url}"></iframe>`);
+}
+</code>
+
+### Fetch Enumerating
+
+<code>
+for (let index = 0; index < 200; index++) {
+    const url = `${window.location.href}/pathtobruteforce/${index}`;
+    await fetch(url).then(r => {
+        if(r.status!=404) console.log(url);
+    });
+}
+</code>
+
+### Curl Enumerating
+
+`curl --silent --fail "https://example.com/[0-10]" -o "out/post_#1.txt" -s -w '%{url} %{http_code}\n`
