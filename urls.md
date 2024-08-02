@@ -12,3 +12,5 @@
 `https://en.wikipedia.org/wiki/List_of_file_signatures`
 `https://www.uuidtools.com/decode`
 `https://inloop.github.io/sqlite-viewer/`
+`https://dnsdumpster.com/`
+`https://www.shodan.io/`

@@ -1,7 +1,10 @@
 # Tools
 
 ping {IP}
-nmap
+nmap #nmap_recon from https://github.com/ThorD125/scripts
+whois
+nslookup
+dig
 
 subfinder
 httpx
@@ -41,7 +44,6 @@ psql -U {USER} -h {IP} -p 5432
 \c {name} #connect to a database
 \dt #list tables
 select * from {table} #show table content
-
 
 zip@john file.zip>hashes.lst
 john hashes.lst
