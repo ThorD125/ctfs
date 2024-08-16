@@ -14,3 +14,6 @@
 `https://inloop.github.io/sqlite-viewer/`
 `https://dnsdumpster.com/`
 `https://www.shodan.io/`
+`https://gtfobins.github.io/`
+`https://www.dehashed.com/`
+`https://hackyx.io/`
