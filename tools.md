@@ -5,6 +5,7 @@ nmap #nmap_recon from https://github.com/ThorD125/scripts
 whois
 nslookup
 dig
+responder
 
 subfinder
 httpx
