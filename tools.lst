@@ -1,7 +1,7 @@
 # Tools
 
-ping {IP}
-nmap #nmap_recon from https://github.com/ThorD125/scripts
+ping
+sudo nmap --open #-p- for full port scan #-sV version detection #-sC default scripts #-Pn host discovery
 whois
 nslookup
 dig
