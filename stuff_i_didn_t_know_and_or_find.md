@@ -94,24 +94,20 @@ The following command can be used to write it to a file:
 
 ### Iframe bruteforcing
 
-<code type="javascript">
-for (let index=0; index < 15; index++ ) {
+<code type="javascript">for (let index=0; index < 15; index++ ) {
     const url = `${window.location.href}/pathtobruteforce/${index}`;
     document.write(`${index}: ${url}`);
     document.write(`<iframe sandbox style="width: 100%" src="${url}"></iframe>`);
-}
-</code>
+}</code>
 
 ### Fetch Enumerating
 
-<code>
-for (let index = 0; index < 200; index++) {
+<code>for (let index = 0; index < 200; index++) {
     const url = `${window.location.href}/pathtobruteforce/${index}`;
     await fetch(url).then(r => {
         if(r.status!=404) console.log(url);
     });
-}
-</code>
+}</code>
 
 ### Curl Enumerating
 
