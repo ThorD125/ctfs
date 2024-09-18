@@ -2,7 +2,7 @@
 
 ## apps
 
-- ```https://play.google.com/store/apps/details?id=com.arara.q```
+```https://play.google.com/store/apps/details?id=com.arara.q```
 
 ## sql injections
 
