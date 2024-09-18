@@ -5,7 +5,7 @@ sudo nmap --open #-p- for full port scan #-sV version detection #-sC default scr
 whois
 nslookup
 dig
-responder
+responder -I {eth0}
 
 subfinder
 httpx
