@@ -1,0 +1,9 @@
+ssh leviathan0@leviathan.labs.overthewire.org -p 2223 #leviathan0
+
+
+passwords can be found
+cat /etc/leviathan_pass/leviathan{0}
+
+
+ls -a
+cat .backup/bookmarks.html | grep -i levia

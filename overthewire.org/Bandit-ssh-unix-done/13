@@ -1,5 +1,0 @@
-ssh bandit13@bandit.labs.overthewire.org -p 2220 #wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
-
-ssh -i ./sshkey.private bandit14@localhost -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 2220
-
-cat /etc/bandit_pass/bandit14

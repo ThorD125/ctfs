@@ -1,0 +1,15 @@
+ssh leviathan1@leviathan.labs.overthewire.org -p 2223 #PPIfmI1qsA
+
+trying doesn't find anything: 
+strings ./check
+
+trying with ltrace it shows the password:
+ltrace ./check
+
+trying it when normally running:
+./check #sex
+
+we get a shell
+whoami < leviathan2
+cat /etc/leviathan_pass/leviathan2
+

@@ -1,0 +1,16 @@
+ssh bandit22@bandit.labs.overthewire.org -p 2220 #WdDozAdTM2z9DiFEQ2mGlwngMfj4EZff
+
+ls /etc/cron.d
+cat /etc/cron.d/cronjob_bandit23
+cat /usr/bin/cronjob_bandit23.sh
+
+myname=bandit23
+mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+
+cat /tmp/$mytarget
+
+
+#!/bin/bash
+wall test -g bandit23
+
+/usr/bin/cronjob_bandit23.sh

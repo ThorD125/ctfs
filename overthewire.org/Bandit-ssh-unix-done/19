@@ -1,3 +1,0 @@
-ssh bandit19@bandit.labs.overthewire.org -p 2220 #awhqfNnAbc1naukrpqDYcF95h7HoMTrC
-
-./bandit20-do cat /etc/bandit_pass/bandit20

@@ -1,4 +1,0 @@
-ssh bandit14@bandit.labs.overthewire.org -p 2220 #fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
-
-nc localhost 30000
-fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq

@@ -1,0 +1,7 @@
+ssh bandit32@bandit.labs.overthewire.org -p 2220 #rmCBvG56y58BXzv98yZGdO7ATVL5dW8y
+
+our shell opens something that uppercases all our inputs
+
+using "$0" we can escape this
+
+cat /etc/bandit_pass/bandit33

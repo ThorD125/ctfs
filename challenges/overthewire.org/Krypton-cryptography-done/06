@@ -1,0 +1,5 @@
+ssh krypton6@krypton.labs.overthewire.org -p 2231 #RANDOM
+
+cd /krypton/krypton6
+
+see, https://gist.github.com/hyperreality/152e7e4f826929d3616f15f890128f48

@@ -1,3 +1,0 @@
-ssh bandit6@bandit.labs.overthewire.org -p 2220 #P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
-
-find / -type f -size 33c 2>/dev/null -group bandit6 -user bandit7

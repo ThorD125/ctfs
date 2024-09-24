@@ -1,0 +1,7 @@
+ssh krypton5@krypton.labs.overthewire.org -p 2231 #CLEARTEXT
+
+cd /krypton/krypton5
+using: https://www.guballa.de/vigenere-solver
+
+and putting 3-30 finds the key "keylength"
+

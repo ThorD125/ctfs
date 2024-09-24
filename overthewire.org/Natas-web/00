@@ -1,9 +1,0 @@
-http://natas0.natas.labs.overthewire.org/
-
-natas0:natas0
-
-info password for next lvl found in /etc/natas_webpass/natas1
-
-sometimes /index-source.html shows the sourecode
-
-ctrl+u on the webpage shows the password

@@ -1,8 +1,0 @@
-ssh krypton1@krypton.labs.overthewire.org -p 2231 #KRYPTONISGREAT
-
-
-cd /krypton/krypton1
-
-cat krypton2
-rot 13
-

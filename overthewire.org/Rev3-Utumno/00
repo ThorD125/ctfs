@@ -1,3 +1,0 @@
-ssh utumno0@utumno.labs.overthewire.org -p 2227 #utumno0
-
-cd /utumno/

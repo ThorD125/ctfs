@@ -1,3 +1,0 @@
-ssh bandit7@bandit.labs.overthewire.org -p 2220 #z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
-
-grep millionth data.txt
