@@ -1,8 +1,8 @@
 # folders
-- challenges contains ctf solutions
-- interest contains interesting random files
-- maps contains interesting road maps found online
-- pictures_for_extra contains pictures that help explain stuff
+- challenges: contains ctf solutions
+- interest: contains interesting random files
+- maps: contains interesting road maps found online
+- pictures_for_extra: contains pictures that help explain stuff
 
 # files
 - cred_dumps.lst: is a list of urls to lookup credentials
