@@ -11,7 +11,7 @@
 - priv_escalations.md: a guide on multiple priv escalations
 - readme.md: explains all the files
 - step_by_step.md: kynd of a road map and tools sorted in a kind of order and or category
-- stuff_i_didn_t_know_and_or_find.md: some guides to things i didn't find in a ctf but learned after a ctf -ended from other people
+- stuff_i_didn_t_know_and_or_find.md: some guides to things i didn't find in a ctf but learned after a reading solutions of a ctf after it ended
 - todo.lst: list of tools, urls, of stuff i still want to check out
 - tools.md: list of usefull tools that don't really fit in the step_by_step.md
 - urls.lst: list of usefull website tools
