@@ -87,3 +87,13 @@ getallurls
 site:{site.com} inurl:test | inurl:env | inurl:dev | inurl:staging | inurl:sandbox | inurl:debug | inurl:temp | inurl:internal | inurl:demo
 
 impacket
+
+az interactive: so no az needs to be typed each time
+az upgrade
+az vm list
+az vm list-ip-addresses
+az network public-ip list
+az network nsg list --query '[].name' --output tsv
+
+https://techcommunity.microsoft.com/t5/security-compliance-and-identity/join-our-microsoft-security-community/ba-p/927888
+veeamclick.be
