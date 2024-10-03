@@ -112,9 +112,23 @@ for (let index = 0; index < 200; index++) {
     await fetch(url).then(r => {
         if(r.status!=404) console.log(url);
     });
-}
+}(
 ```
 
 ### Curl Enumerating
 
 - curl --silent --fail "https://example.com/[0-10]" -o "out/post_#1.txt" -s -w '%{url} %{http_code}\n
+
+### Kerberos, dns, ldap, msrpc notes
+
+Kerberos protocol uses port 88(tcp and udp),
+so doing a nmap for port 88 could expose the domain controller
+
+Dns runs on port 53 (udp default, when message is to big tcp)
+nslookup {ip} returns a domain
+nslookup {domain} returns an ip
+
+ldap runs on port 389 or with over ssl over port 636
+ad to ldap is like apache to http
+
+ntlm hashes
