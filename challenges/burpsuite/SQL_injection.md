@@ -99,7 +99,7 @@ abcdefghijklmnopqrstuvwxyz0123456789
 
 ofc its tedious to do this for longer passwords
 thus using chatgpt you can write a quick "bruteforcer"
-see "sql_blind_test.py"
+see "script/sql_blind.py"
 
 ## error based
 even harder
@@ -140,7 +140,7 @@ then checking the char at each location
 
 ofc this will take to long to do
 thus we write ask gpt to ask make a script
-see "sql_error_test.py"
+see "script/sql_error.py"
 
 
 verbose erroring
@@ -187,7 +187,7 @@ and then getting bruteforcing the password
 '%3BSELECT+CASE+WHEN+(username='administrator'+AND+SUBSTRING(password,1,1)='a')+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
 
 ofc this is tedious and we let our buddy gpt
-write a script for it "sql_timed_test.py"
+write a script for it "script/sql_timed.py"
 
 ## out-of-band (OAST) technique
 if a different thread is used to execute the query
