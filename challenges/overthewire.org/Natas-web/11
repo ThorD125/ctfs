@@ -1,7 +1,5 @@
 # http://natas11.natas.labs.overthewire.org/
 
-# natas11:1KFqoJXi6hRaPluAmk8ESDW4fSysRoIg
-
 import base64
 
 # Provided encrypted data (base64 encoded)
