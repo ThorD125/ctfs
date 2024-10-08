@@ -1,7 +1,5 @@
 http://natas8.natas.labs.overthewire.org/
 
-natas8:a6bZCNYwdKqN5cGP11ZdtPg0iImQQhAB
-
 looking at the source
 
 we find a secret and also the encoding of the password
