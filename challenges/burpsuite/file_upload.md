@@ -69,4 +69,19 @@ or first bytes of a file need to be those of a image format
 then magicbytes can be added in the beginning of a script to bypass this
 jpeg: FF D8 FF
 
-using exiftool trivial malicious code could be stored in a jpgs metadata:polyglot JPEG
+## polyglot
+using exiftool trivial malicious code could be stored in a jpgs metadata
+or just at the end of the file see "script/file_upload_polyglot.sh"
+
+## put
+sometimes other requests are excepted and not only GET or POST
+fe PUT, OPTIONS
+
+## prevention
+splitting on . of the filename and checking against a whitelist
+if removing dissalowed extensions do it recursively
+making sure directeroy traversal cant be used: ../
+renaming uploaded files
+only allow scanned files to be uploaded
+dont write this yourself, use established technologys
+
