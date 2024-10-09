@@ -9,19 +9,16 @@ const path = "/my-account/avatar";
 const blob = new Blob([payload], { type: typeYouWant });
 const file = new File([blob], name, { type: typeYouWant });
 
-// The form data
+// The form data maybe needs to be changed to whatever parameters are neded
 const formData = new FormData();
 formData.append("avatar", file);
 formData.append("user", "wiener");
 formData.append("csrf", csrfToken);
 
-// The request options
 const options = {
     method: "POST",
     body: formData
 };
-
-// Fetch request
 fetch(path, options)
     .then(response => response.text())
     .then(data => console.log(data))
