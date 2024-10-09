@@ -44,3 +44,29 @@ web.config:
 .htaccess:
 `AddHandler application/x-httpd-php .php`
 
+## file name obfuscation
+using multiple extensions
+.php.jpg
+
+trailing characters
+.php.
+
+encoding
+%2Ephp
+
+null byte characters maybe with encoding
+.php;.jpg
+.php%00.jpg
+
+if replacing things and its not recursive
+.ph.phpp
+
+## filecontent
+might be that a server will get the widht en height of image,
+ofc with a script its not possible
+
+or first bytes of a file need to be those of a image format
+then magicbytes can be added in the beginning of a script to bypass this
+jpeg: FF D8 FF
+
+using exiftool trivial malicious code could be stored in a jpgs metadata:polyglot JPEG
