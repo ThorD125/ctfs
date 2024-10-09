@@ -27,5 +27,20 @@ or filename extension of lesser known could be used
 ## server side preventions
 some config files are used to prevent access or execution of certain files
 these might be interesting to try to retrieve if possible 
-.htaccess
-web.config
+if we can upload these than we can even let files we are able to upload fe allow php to work
+
+web.config:
+`<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <system.webServer>
+        <handlers>
+            <!-- Add handler to process PHP files -->
+            <add name="PHP-FastCGI" path="*.php" verb="*" modules="FastCgiModule" scriptProcessor="C:\path\to\php\php-cgi.exe" resourceType="Either" requireAccess="Script" />
+        </handlers>
+    </system.webServer>
+</configuration>`
+
+
+.htaccess:
+`AddHandler application/x-httpd-php .php`
+
