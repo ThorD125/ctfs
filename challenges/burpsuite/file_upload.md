@@ -71,7 +71,7 @@ jpeg: FF D8 FF
 
 ## polyglot
 using exiftool trivial malicious code could be stored in a jpgs metadata
-or just at the end of the file see "script/file_upload_polyglot.sh"
+or just at the end of the file see [polyglot.sh](script/file_upload_polyglot.sh)
 
 ## put
 sometimes other requests are excepted and not only GET or POST
