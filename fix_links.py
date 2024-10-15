@@ -17,9 +17,9 @@ def create_md_files(root_directory):
         # Get the current directory name
         dir_name = os.path.basename(root)
         
-        # If we are in the root directory, set the filename to "readme.md"
+        # If we are in the root directory, set the filename to "tree.md"
         if root == root_directory:
-            md_filename = os.path.join(root, "readme.md")
+            md_filename = os.path.join(root, "tree.md")
         else:
             # Otherwise, create a filename with the format directoryname.md
             md_filename = os.path.join(root, f"{dir_name}.md")
