@@ -33,5 +33,5 @@ def create_md_files(root_directory):
                 md_file.write(content)
 
 # Specify the root directory where you want the script to start
-root_directory = "challenges"
+root_directory = "."
 create_md_files(root_directory)
