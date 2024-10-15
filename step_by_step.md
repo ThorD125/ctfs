@@ -1,10 +1,12 @@
-# recon
+# step by step
+
+## recon
 ping {ip}
 whois {domain}
 nslookup {ip}
 dig {ip}
 
-# target scanning
+## target scanning
 sudo nmap --open #-p- for full port scan #-sV version detection #-sC default scripts #-Pn host discovery
 
 subfinder -d {domain}
@@ -12,7 +14,7 @@ dnsgen urls.lst | httprobe
 httpx
 whatweb
 
-# remote exploits
+## remote exploits
 ftp anonymous@{IP}
 
 smbmap -H {IP} #list shares on target with anomouse
@@ -31,11 +33,11 @@ psql -U {USER} -h {IP} -p 5432
 \dt #list tables
 select * from {table} #show table content
 
-# connections
+## connections
 ssh {user}@{ip}
 xfreerdp /v:{IP} /u:{USER} /p:{PASSWORD}
 
-# when getting some kind of shell access
+## when getting some kind of shell access
 whoami
 id #default groups: audio video plugdev cdrom dip floppy netdev
 groups
@@ -51,14 +53,14 @@ pspy32 #spy tool, open it on a host, login on second terminal
 
 ssh -L {porttoconnectwithonlocalhost}:{local/iptoconnecttothroughthessh}:{porttoconnect} {USER}@{IP}
 
-# cracking hashes
+## cracking hashes
 zip@john file.zip>hashes.lst
 john hashes.lst
 john hashes.lst --show
 
 hashcat -a 0 -m 20 {hashfile} /usr/share/wordlists/rockyou.txt
 
-# brute forcing
+## brute forcing
 hydra -L users.txt -P pass.txt {IP} ssh
 
 gobuster dir --url {ip} --wordlist /usr/share/wordlists/dirb/big.txt

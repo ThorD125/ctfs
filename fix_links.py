@@ -55,17 +55,28 @@ def create_md_files(root_directory):
             and not re.match(r'^\d+\.(md|lst)$', file)  # Ignore files that are only numbers
         ]
         
-        # Only proceed if there are .md/.lst files or subdirectories
-        if relevant_files or dirs:
+        # Check if there are subdirectories or relevant files
+        subdirs_with_content = []
+        for directory in dirs:
+            subdir_path = os.path.join(root, directory)
+            subdir_md_file = os.path.join(subdir_path, f"{directory}.md")
+            
+            # Check if subdirectory contains any files or subdirectories
+            subdir_files = [f for f in os.listdir(subdir_path) if not re.match(r'^\d+\.(md|lst)$', f)]
+            
+            # Include subdirectory if it contains files or sub-subdirectories, or has its own .md file
+            if subdir_files or os.path.exists(subdir_md_file):
+                encoded_directory = urllib.parse.quote(directory)  # Replace spaces with %20
+                subdirs_with_content.append(f"- [{directory}]({encoded_directory}/{encoded_directory}.md)\n")
+        
+        # Only proceed if there are relevant files or subdirectories with content
+        if relevant_files or subdirs_with_content:
             # Create the content to be written into the markdown file
             content = f"# {dir_name if root != root_directory else 'Root Directory'}\n\n"
             
-            # Add subdirectories to the content with links to their .md files
-            if dirs:
-                content += "## Subdirectories:\n"
-                for directory in dirs:
-                    encoded_directory = urllib.parse.quote(directory)  # Replace spaces with %20
-                    content += f"- [{directory}]({encoded_directory}/{encoded_directory}.md)\n"
+            # Add subdirectories with content to the parent file
+            if subdirs_with_content:
+                content += "## Subdirectories:\n" + "".join(subdirs_with_content)
             
             # Add the list of .md and .lst files to the content
             if relevant_files:
