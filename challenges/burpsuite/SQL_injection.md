@@ -220,6 +220,6 @@ prohibit a list of words that can exist in fields
 
 ## payloads
 
-stored in the root folder: [sql payloads](../../lists/sql.md)
+stored in: [sql payloads](../../lists/sql.md)
 
 https://portswigger.net/web-security/sql-injection/cheat-sheet
