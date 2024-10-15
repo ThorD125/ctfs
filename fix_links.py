@@ -1,11 +1,31 @@
 import os
+import re
+import urllib.parse
+
+def remove_directory_md_files(root_directory):
+    # Walk through all directories and subdirectories
+    for root, dirs, files in os.walk(root_directory):
+        # Get the current directory name
+        dir_name = os.path.basename(root)
+        
+        # Remove the directory's .md file if it exists (e.g., tree.md or directoryname.md)
+        if root == root_directory:
+            md_filename = os.path.join(root, "tree.md")  # Root directory's .md file
+        else:
+            md_filename = os.path.join(root, f"{dir_name}.md")  # Subdirectory's .md file
+
+        if os.path.exists(md_filename):
+            os.remove(md_filename)
 
 def add_md_extension_to_files(root_directory):
     # Walk through all directories and subdirectories
     for root, dirs, files in os.walk(root_directory):
+        # Skip .vscode and .git folders
+        dirs[:] = [d for d in dirs if d not in ['.vscode', '.git']]
+        
         for file in files:
-            # Check if the file has no extension
-            if '.' not in file:
+            # Check if the file has no extension and is not purely numeric
+            if '.' not in file and not re.match(r'^\d+$', file):
                 # Add the .md extension
                 old_file_path = os.path.join(root, file)
                 new_file_path = os.path.join(root, f"{file}.md")
@@ -14,6 +34,9 @@ def add_md_extension_to_files(root_directory):
 def create_md_files(root_directory):
     # Walk through all directories and subdirectories
     for root, dirs, files in os.walk(root_directory):
+        # Skip .vscode and .git folders
+        dirs[:] = [d for d in dirs if d not in ['.vscode', '.git']]
+        
         # Get the current directory name
         dir_name = os.path.basename(root)
         
@@ -24,8 +47,13 @@ def create_md_files(root_directory):
             # Otherwise, create a filename with the format directoryname.md
             md_filename = os.path.join(root, f"{dir_name}.md")
         
-        # Filter and list only .md and .lst files
-        relevant_files = [file for file in files if file.endswith('.md') or file.endswith('.lst')]
+        # Filter and list only .md and .lst files, excluding the current .md file itself
+        relevant_files = [
+            file for file in files 
+            if (file.endswith('.md') or file.endswith('.lst')) 
+            and file != os.path.basename(md_filename) 
+            and not re.match(r'^\d+\.(md|lst)$', file)  # Ignore files that are only numbers
+        ]
         
         # Only proceed if there are .md/.lst files or subdirectories
         if relevant_files or dirs:
@@ -36,13 +64,15 @@ def create_md_files(root_directory):
             if dirs:
                 content += "## Subdirectories:\n"
                 for directory in dirs:
-                    content += f"- [{directory}]({directory}/{directory}.md)\n"
+                    encoded_directory = urllib.parse.quote(directory)  # Replace spaces with %20
+                    content += f"- [{directory}]({encoded_directory}/{encoded_directory}.md)\n"
             
             # Add the list of .md and .lst files to the content
             if relevant_files:
                 content += "\n## Files:\n"
                 for file in relevant_files:
-                    content += f"- [{file}]({file})\n"
+                    encoded_file = urllib.parse.quote(file)  # Replace spaces with %20
+                    content += f"- [{file}]({encoded_file})\n"
             
             # Write the content to the .md file
             with open(md_filename, 'w') as md_file:
@@ -51,8 +81,11 @@ def create_md_files(root_directory):
 # Set the root directory to be the current directory (".")
 root_directory = "."
 
-# First, add .md extensions to files without extensions
+# First, remove only the existing directory .md files (tree.md and subdirectory .md files)
+remove_directory_md_files(root_directory)
+
+# Then, add .md extensions to files without extensions, ignoring numeric filenames
 add_md_extension_to_files(root_directory)
 
-# Then, create the markdown files as described
+# Finally, create the markdown files as described
 create_md_files(root_directory)

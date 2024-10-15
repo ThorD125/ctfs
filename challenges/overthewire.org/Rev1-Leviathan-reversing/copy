@@ -1,2 +1,0 @@
-ssh leviathan{0}@leviathan.labs.overthewire.org -p 2223 #{leviathan0}
-
