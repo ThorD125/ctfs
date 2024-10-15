@@ -1,7 +1,6 @@
 # burpsuite
 
 ## Subdirectories:
-- [script](script/script.md)
 
 ## Files:
 - [file_upload.md](file_upload.md)

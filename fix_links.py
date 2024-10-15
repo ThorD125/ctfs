@@ -100,3 +100,47 @@ add_md_extension_to_files(root_directory)
 
 # Finally, create the markdown files as described
 create_md_files(root_directory)
+
+# Regular expression to find markdown links
+markdown_link_pattern = re.compile(r'\[.*?\]\((.*?)\)')
+
+def find_broken_links_in_file(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+
+    new_lines = []
+    modified = False
+
+    for line in lines:
+        matches = markdown_link_pattern.findall(line)
+        if matches:
+            for link in matches:
+                decoded_link = urllib.parse.unquote(link)  # Decode URL-encoded parts like %20
+                if not os.path.isabs(decoded_link):  # Only check relative links
+                    link_path = os.path.join(os.path.dirname(file_path), decoded_link)
+                    if not os.path.exists(link_path):
+                        print(f"Broken link found in {file_path}: {link}")
+                        modified = True
+                        break
+            else:
+                new_lines.append(line)
+        else:
+            new_lines.append(line)
+
+    return new_lines if modified else None
+
+def process_directory(directory):
+    for root, dirs, files in os.walk(directory):
+        for file in files:
+            if file.endswith('.md'):
+                file_path = os.path.join(root, file)
+                new_content = find_broken_links_in_file(file_path)
+
+                if new_content is not None:
+                    # Overwrite file with lines that do not contain broken links
+                    with open(file_path, 'w', encoding='utf-8') as file:
+                        file.writelines(new_content)
+                    print(f"Updated file: {file_path}")
+
+directory_to_check = "."
+process_directory(directory_to_check)
