@@ -10,6 +10,9 @@ spiderfoeot
 sherlock
 gitleaks
 
+https://threatfox.abuse.ch/browse/
+https://sslbl.abuse.ch/
+
 https://learn.microsoft.com/en-us/security/
 
 https://learn.microsoft.com/en-us/training/browse/?hideCompleted=true&levels=beginner&subjects=security&resource_type=learning%20path&roles=security-engineer
