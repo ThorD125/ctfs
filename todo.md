@@ -1,4 +1,7 @@
-# tools to try and then include in the step_by_Step
+# stuff to try and then put on a "correct" place in the step_by_Step
+
+{url}/robots.txt
+
 
 kerbrute
 go witnes
