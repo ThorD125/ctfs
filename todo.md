@@ -1,3 +1,8 @@
+# stuff to try and then put on a "correct" place in the step_by_Step
+
+{url}/robots.txt
+
+
 kerbrute
 go witnes
 nuclei
@@ -9,6 +14,9 @@ dirsearch
 spiderfoeot
 sherlock
 gitleaks
+
+https://threatfox.abuse.ch/browse/
+https://sslbl.abuse.ch/
 
 https://learn.microsoft.com/en-us/security/
 
