@@ -1,7 +1,8 @@
 # stuff to try and then put on a "correct" place in the step_by_Step
 
 {url}/robots.txt
-
+crt.sh
+sublister
 
 kerbrute
 go witnes
