@@ -4,6 +4,13 @@
 crt.sh
 sublister
 
+
+msfconsole
+systemctl start postgresql
+msfdb init
+db_status 
+workspace -a {name}
+db_nmap -sV -p- {ip}
 kerbrute
 go witnes
 nuclei
