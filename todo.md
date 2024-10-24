@@ -11,6 +11,10 @@ msfdb init
 db_status 
 workspace -a {name}
 db_nmap -sV -p- {ip}
+use {exploit}
+hosts -R
+
+
 kerbrute
 go witnes
 nuclei
