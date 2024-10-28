@@ -126,3 +126,8 @@ az network nsg list --query '[].name' --output tsv
 
 https://techcommunity.microsoft.com/t5/security-compliance-and-identity/join-our-microsoft-security-community/ba-p/927888
 veeamclick.be
+
+
+reset email functie,
+als reset email heeft en een user id,
+reset email veranderen en dan krijgj misschien email op de attackers email
