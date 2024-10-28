@@ -4,6 +4,10 @@
 crt.sh
 sublister
 
+pestudio
+procexp
+procmon
+cff explorer
 
 msfconsole
 systemctl start postgresql
