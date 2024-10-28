@@ -1,5 +1,8 @@
 # stuff to try and then put on a "correct" place in the step_by_Step
 
+ssrf:
+requestbin.com
+
 {url}/robots.txt
 crt.sh
 sublister
