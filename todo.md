@@ -3,6 +3,10 @@
 getcap -r / 2>/dev/null
 beetje als gtfobins
 
+path exploit
+export PATH=/tmp:$PATH
+nano "/bin/bash">/tmp/{foundnameofsomethingthatexecutesabinarywithpriviliges}
+
 ssrf:
 requestbin.com
 
