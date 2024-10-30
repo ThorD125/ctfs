@@ -1,5 +1,8 @@
 # stuff to try and then put on a "correct" place in the step_by_Step
 
+cmdkey /list
+runas /savecred /user:{usernamefromcmdkeylist} cmd.exe
+
 getcap -r / 2>/dev/null
 beetje als gtfobins
 
