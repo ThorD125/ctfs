@@ -5,6 +5,7 @@ ping {ip}
 whois {domain}
 nslookup {ip}
 dig {ip}
+host {domain}
 
 ## target scanning
 sudo nmap --open #-p- for full port scan #-sV version detection #-sC default scripts #-Pn host discovery
