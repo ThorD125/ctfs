@@ -55,6 +55,16 @@ pspy32 #spy tool, open it on a host, login on second terminal
 
 ssh -L {porttoconnectwithonlocalhost}:{local/iptoconnecttothroughthessh}:{porttoconnect} {USER}@{IP}
 
+## sshkeys
+ls *.ssh/ #look for keys and try to login with them to other users
+
+## pgp key decryption
+gpg2john {file}.asc > hash
+john --format=gpg --wordlist=/usr/share/wordlist/rockyou.txt hash
+gpg --import {file}.asc
+gpg --decrypt {file}.gpg
+
+
 ## cracking hashes
 zip@john file.zip>hashes.lst
 john hashes.lst
