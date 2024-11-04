@@ -33,6 +33,7 @@ set lport 4444
 ctrl+z #session in the background to use for later
 
 # tools
+steghide --extract {file}
 
 ssrf:
 requestbin.com
