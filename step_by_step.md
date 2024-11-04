@@ -48,6 +48,7 @@ cat .bash_history
 ss -tln #identify localports
 ss -tla #identify name
 
+find / -user root -perm /4000 2>/dev/null
 find / -type f -perm -04000 -ls 2>/dev/null #find tools that have an suid, look these up on https://gtfobins.github.io/
 
 pspy32 #spy tool, open it on a host, login on second terminal
