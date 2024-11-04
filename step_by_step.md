@@ -64,7 +64,7 @@ hashcat -a 0 -m 20 {hashfile} /usr/share/wordlists/rockyou.txt
 
 ## brute forcing
 hydra -L users.txt -P pass.txt {IP} ssh
-hydra -l mike -P /usr/share/wordlists/rockyou.txt -vV 10.10.8.14 ftp
+hydra -l mike -P /usr/share/wordlists/rockyou.txt -vV {ip} ftp
 
 gobuster dir --url {ip} --wordlist /usr/share/wordlists/dirb/big.txt
 gobuster dns -d {domain} --wordlist /usr/share/wordlists/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt
