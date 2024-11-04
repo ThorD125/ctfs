@@ -42,7 +42,6 @@ xfreerdp /v:{IP} /u:{USER} /p:{PASSWORD}
 whoami
 id #default groups: audio video plugdev cdrom dip floppy netdev
 groups
-sudo -L
 cat .bash_history
 
 ss -tln #identify localports
@@ -55,10 +54,15 @@ pspy32 #spy tool, open it on a host, login on second terminal
 
 ssh -L {porttoconnectwithonlocalhost}:{local/iptoconnecttothroughthessh}:{porttoconnect} {USER}@{IP}
 
-## sshkeys
-ls *.ssh/ #look for keys and try to login with them to other users
 
-## pgp key decryption
+## sudo -L
+https://gtfobins.github.io/#+sudo
+
+## ls *.ssh/ 
+look for keys and try to login with them to other users
+ssh {user}@{ip} -i {keyfile}
+
+### pgp key decryption
 gpg2john {file}.asc > hash
 john --format=gpg --wordlist=/usr/share/wordlist/rockyou.txt hash
 gpg --import {file}.asc
