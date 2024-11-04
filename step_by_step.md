@@ -38,6 +38,12 @@ select * from {table} #show table content
 ssh {user}@{ip}
 xfreerdp /v:{IP} /u:{USER} /p:{PASSWORD}
 
+## basic shell-> shell++
+```
+python3 -c 'import pty;pty.spawn("/bin/bash")'
+script /dev/null -c bash
+```
+
 ## when getting some kind of shell access
 whoami
 id #default groups: audio video plugdev cdrom dip floppy netdev
