@@ -16,6 +16,9 @@ httpx
 whatweb
 
 ## remote exploits
+### http/https
+if seeing any url with a number change the number
+
 ### ftp
 ftp anonymous@{IP}
 
