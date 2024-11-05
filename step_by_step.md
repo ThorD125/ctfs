@@ -16,8 +16,10 @@ httpx
 whatweb
 
 ## remote exploits
+### ftp
 ftp anonymous@{IP}
 
+### smb
 smbmap -H {IP} #list shares on target with anomouse
 smbmap -H {IP} -u {username} #guest/administrator
 smbclient -L={IP} -U Administrator #try a login
@@ -28,23 +30,29 @@ cd {dir}
 mget /Policies/*/MACHINE/Preferences/Groups/Groups.xml
 mget *
 
+### psql
 psql -U {USER} -h {IP} -p 5432
 \l #list databases
 \c {name} #connect to a database
 \dt #list tables
 select * from {table} #show table content
 
-## connections
+### finding github source
+when finding the source code,
+compare the changes,
+sometimes in this there might be found the difference
+
+## getting connections
 ssh {user}@{ip}
 xfreerdp /v:{IP} /u:{USER} /p:{PASSWORD}
 
-## basic shell-> shell++
+### basic shell -> shell++
 ```
 python3 -c 'import pty;pty.spawn("/bin/bash")'
 script /dev/null -c bash
 ```
 
-## when getting some kind of shell access
+### recon from a shell
 whoami
 id #default groups: audio video plugdev cdrom dip floppy netdev
 groups
@@ -56,19 +64,16 @@ ss -tla #identify name
 find / -user root -perm /4000 2>/dev/null
 find / -type f -perm -04000 -ls 2>/dev/null #find tools that have an suid, look these up on https://gtfobins.github.io/
 
-pspy32 #spy tool, open it on a host, login on second terminal
+pspy32 #spy tool, open it on a host, login on second terminal, and maybe gain stuff
 
-ssh -L {porttoconnectwithonlocalhost}:{local/iptoconnecttothroughthessh}:{porttoconnect} {USER}@{IP}
-
-
-## sudo -L
+### sudo -L
 https://gtfobins.github.io/#+sudo
 
-## ls *.ssh/ 
+### ls *.ssh/ 
 look for keys and try to login with them to other users
 ssh {user}@{ip} -i {keyfile}
 
-### pgp key decryption
+#### pgp key decryption
 gpg2john {file}.asc > hash
 john --format=gpg --wordlist=/usr/share/wordlist/rockyou.txt hash
 gpg --import {file}.asc
@@ -76,9 +81,9 @@ gpg --decrypt {file}.gpg
 
 
 ## cracking hashes
-zip@john file.zip>hashes.lst
-john hashes.lst
-john hashes.lst --show
+zip2john file.zip>{hashfile}
+john {hashfile}
+john {hashfile} --show
 
 hashcat -a 0 -m 20 {hashfile} /usr/share/wordlists/rockyou.txt
 
