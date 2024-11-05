@@ -56,6 +56,8 @@ python3 -c 'import pty;pty.spawn("/bin/bash")'
 ```
 script /dev/null -c bash
 ```
+
+ctrl+Z and then
 ```
 stty raw -echo && fg
 ```
