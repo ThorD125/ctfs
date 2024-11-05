@@ -48,6 +48,7 @@ sometimes in this there might be found the difference
 ## getting connections
 ssh {user}@{ip}
 xfreerdp /v:{IP} /u:{USER} /p:{PASSWORD}
+telnet {ip} {port}
 
 ### basic shell -> shell++
 ```
@@ -56,7 +57,6 @@ python3 -c 'import pty;pty.spawn("/bin/bash")'
 ```
 script /dev/null -c bash
 ```
-
 ctrl+Z and then
 ```
 stty raw -echo && fg
@@ -67,6 +67,7 @@ whoami
 id #default groups: audio video plugdev cdrom dip floppy netdev
 groups
 cat .bash_history
+uname -a
 
 ss -tln #identify localports
 ss -tla #identify name
