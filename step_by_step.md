@@ -96,6 +96,7 @@ gobuster dns -d {domain} --wordlist /usr/share/wordlists/seclists/Discovery/DNS/
 
 feroxbuster -u {ip}
 
+ffuf -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-110000.txt -u http://{domain}/ -H "HOST:FUZZ.{domain}" -fw 1 #vhost
 ffuf -w /usr/share/wordlists/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt -u http://{domain} -H 'Host: FUZZ.{domain}' -fw 4 -t 100
 ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt:FFUZ -u http://{domain} -H 'Host: http://{domain}/FFUZ' -ic -t 100
 
