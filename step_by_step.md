@@ -77,6 +77,11 @@ find / -type f -perm -04000 -ls 2>/dev/null #find tools that have an suid, look 
 
 pspy32 #spy tool, open it on a host, login on second terminal, and maybe gain stuff
 
+cd C:\Program Files (x86)
+dir
+
+PrivescCheck.ps1
+
 ### sudo -L
 https://gtfobins.github.io/#+sudo
 
