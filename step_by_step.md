@@ -46,7 +46,7 @@ compare the changes,
 sometimes in this there might be found the difference
 
 ## getting connections
-ssh {user}@{ip}
+ssh -t {user}@{ip} /bin/sh
 xfreerdp /v:{IP} /u:{USER} /p:{PASSWORD}
 telnet {ip} {port}
 
@@ -91,6 +91,7 @@ pspy32 #spy tool, open it on a host, login on second terminal, and maybe gain st
 echo -e "hackerpassword\nhackerpassword" | passwd root
 
 grep -r "THM{" / >> temp_flags.txt 2>/dev/null
+
 
 ### sudo -L
 https://gtfobins.github.io/#+sudo
