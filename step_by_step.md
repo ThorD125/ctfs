@@ -92,6 +92,7 @@ echo -e "hackerpassword\nhackerpassword" | passwd root
 
 grep -r "THM{" / >> temp_flags.txt 2>/dev/null
 
+nano /etc/passwd #shells -> /sbin/nologin
 
 ### sudo -L
 https://gtfobins.github.io/#+sudo
