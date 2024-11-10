@@ -1,5 +1,7 @@
 # stuff to try and then put on a "correct" place in the step_by_Step
 
+smap => nmap
+smap nmap maar lookup van shodan, dan nmap van die open poorten
 
 # windows
 cmdkey /list
