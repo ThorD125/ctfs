@@ -114,6 +114,9 @@ gpg --decrypt {file}.gpg
 cd C:\Program Files (x86)
 dir
 
+Get-ExecutionPolicy
+Set-ExecutionPolicy -ExecutionPolicy Bypass
+
 PrivescCheck.ps1
 
 ## cracking hashes
