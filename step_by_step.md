@@ -32,6 +32,7 @@ PROMPT OFF
 cd {dir}
 mget /Policies/*/MACHINE/Preferences/Groups/Groups.xml
 mget *
+smbget -R smb://{ip}/anonymous
 
 ### psql
 psql -U {USER} -h {IP} -p 5432
