@@ -1,3 +1,14 @@
+# this:
+is a bit of a guide into reversing and exploiting apps
+
+## what the binary
+magicbytes are the first x bytes that can help you determine what kynd of file it is fe a picture an executable etc
+
+## windows exes
+peheaders contain a lot of info, "pe studio" allows you to look at these
+
+## decompiling
+ilspy: .net
 
 ## frida modifying apps
 frida-trace ./{application} -i '*'
