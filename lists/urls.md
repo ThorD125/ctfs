@@ -17,4 +17,5 @@ https://hackyx.io/
 https://www.google.com/advanced_search
 https://lolbas-project.github.io/
 https://quipqiup.com/
-
+https://crt.sh
+https://dnsdumpster.com
