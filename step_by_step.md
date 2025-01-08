@@ -5,6 +5,7 @@ ping {ip}
 whois {domain}
 nslookup {ip}
 dig {ip}
+dnsrecon -d {domain} -a
 host {domain}
 
 ## target scanning
