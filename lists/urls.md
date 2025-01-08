@@ -19,3 +19,4 @@ https://lolbas-project.github.io/
 https://quipqiup.com/
 https://crt.sh
 https://dnsdumpster.com
+https://www.virustotal.com/gui/home/search
