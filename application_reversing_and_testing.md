@@ -1,20 +1,36 @@
 # this:
 is a bit of a guide into reversing and exploiting apps
 
-## what the binary
-magicbytes are the first x bytes that can help you determine what kynd of file it is fe a picture an executable etc
-
 ## before doing anything
 get the filehash
 and make a copy, and use the copy to work with
 
+## what the binary/file
+magicbytes are the first x bytes that can help you determine what kynd of file it is fe a picture an executable etc
+a hexeditor can be used to edit these or even any byte of a file
+
+## strings 
+of files checks valid text strings in files
+sometimes revealing secrets
+
+## packed files
+sometimes files are obfuscated or are packed (like zips)
+and can be deobfuscated or unpacked
+exeinfo or peid can be used to detect this
+
 ## windows exes
 peheaders contain a lot of info, "pe studio" allows you to look at these
+"dependency walker" can help you identify what functionality an exe has
+
+## spoofing stuff
+fakenet or inetsim can help simmulate network access
 
 ## decompiling
 ilspy: .net
 
-## frida modifying apps
+## modifying apps
+
+### frida
 frida-trace ./{application} -i '*'
 this will create files that hook into the functions that are being called
 but it will hook into way to much
