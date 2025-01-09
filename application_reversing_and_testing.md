@@ -4,6 +4,10 @@ is a bit of a guide into reversing and exploiting apps
 ## what the binary
 magicbytes are the first x bytes that can help you determine what kynd of file it is fe a picture an executable etc
 
+## before doing anything
+get the filehash
+and make a copy, and use the copy to work with
+
 ## windows exes
 peheaders contain a lot of info, "pe studio" allows you to look at these
 
