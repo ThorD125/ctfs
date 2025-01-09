@@ -26,16 +26,22 @@ exeinfo or peid can be used to detect this
 peheaders contain a lot of info, "pe studio" allows you to look at these
 "dependency walker" can help you identify what functionality an exe has
 
-
 ### decompiling
 ilspy: .net
+
+## advanced static analysis
+using ida or Ghidra
+to disassemble an executable
+looking at the strings,
+main code,
+edit some function or dissasemble them
+debug, and edit the executables
 
 ## dynamic analysis
 ### sandboxes
 sandboxie can be used to sandbox an app
 use process explorer to check the processes
 fake or spoof the network: apatedns, fakedns.py, inetsim, fakenet-ng,
-
 
 ### modifying apps
 #### frida
