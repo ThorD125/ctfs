@@ -27,7 +27,7 @@ ftp anonymous@{IP}
 smbmap -H {IP} #list shares on target with anomouse
 smbmap -H {IP} -u {username} #guest/administrator
 smbclient -L={IP} -U Administrator #try a login
-smbclient //{IP}/{sharename} #connect to specifiec share
+smbclient //{IP}/{the\ share\ name} #connect to specifiec share
 RECURSE ON
 PROMPT OFF
 cd {dir}
