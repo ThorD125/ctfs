@@ -1,5 +1,8 @@
 # step by step
 
+## osint
+https://dnsdumpster.com/
+
 ## recon
 ping {ip}
 whois {domain}
