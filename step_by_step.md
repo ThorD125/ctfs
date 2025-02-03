@@ -2,6 +2,7 @@
 
 ## osint
 https://dnsdumpster.com/
+https://web.archive.org/
 
 ## recon
 ping {ip}
