@@ -4,6 +4,8 @@
 https://dnsdumpster.com/
 https://web.archive.org/
 https://dorksearch.com/
+https://www.shodan.io/
+https://haveibeenpwned.com
 
 ## recon
 ping {ip}
