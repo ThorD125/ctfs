@@ -18,6 +18,7 @@ host {domain}
 
 ## target scanning
 sudo nmap --open #-p- for full port scan #-sV version detection #-sC default scripts #-Pn host discovery
+(if hostname is found in nmap then add its hostname and ip to the /etc/hosts file)
 
 subfinder -d {domain}
 dnsgen urls.lst | httprobe
