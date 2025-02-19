@@ -1,3 +1,0 @@
-# overthewire.org
-
-## Subdirectories:
