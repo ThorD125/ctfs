@@ -78,6 +78,7 @@ whoami
 id #default groups: audio video plugdev cdrom dip floppy netdev
 groups
 uname -a
+printenv
 cat /etc/sudoers
 cat */.bash_history
 cat */.bashrc
