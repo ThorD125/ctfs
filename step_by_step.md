@@ -1,4 +1,5 @@
 # step by step
+https://hackyx.io/
 
 ## osint
 https://dnsdumpster.com/
@@ -16,15 +17,21 @@ dig {ip}
 dnsrecon -d {domain} -a
 host {domain}
 
+https://dnsdumpster.com/
+https://www.shodan.io/
+
 ## target scanning
 sudo nmap --open #-p- for full port scan #-sV version detection #-sC default scripts #-Pn host discovery
 (if hostname is found in nmap then add its hostname and ip to the /etc/hosts file)
 (if sites, visit and if see versions, lookup cves)
 
+### domain scanning
 subfinder -d {domain}
 dnsgen urls.lst | httprobe
 httpx
 whatweb
+https://crt.sh/
+https://certlogik.com/decoder/
 
 ## remote exploits
 ### http/https
@@ -74,7 +81,9 @@ ctrl+Z and then
 stty raw -echo && fg
 ```
 
-### recon from a shell
+## from a shell
+
+### recon
 whoami
 id #default groups: audio video plugdev cdrom dip floppy netdev
 groups
@@ -108,8 +117,12 @@ grep -r "THM{" / >> temp_flags.txt 2>/dev/null
 nano /etc/passwd #shells -> /sbin/nologin
 
 ### sudo -L
-https://gtfobins.github.io/#+sudo
-sudo -u#-1 /bin/bash
+https://gtfobins.github.io/
+
+### other default binarys
+https://lolbas-project.github.io/
+https://www.loldrivers.io/
+
 
 ### ls *.ssh/ 
 look for keys and try to login with them to other users
@@ -138,6 +151,18 @@ john {hashfile}
 john {hashfile} --show
 
 hashcat -a 0 -m 20 {hashfile} /usr/share/wordlists/rockyou.txt
+
+### or looking them up
+https://www.tunnelsup.com/hash-analyzer/
+https://haveibeenpwned.com/
+https://scatteredsecrets.com/
+https://leakcheck.io/
+https://leakpeek.com/
+https://haveibeensold.app/
+https://www.dehashed.com/
+https://intelx.io/
+https://default-password.info/
+https://md5decrypt.net/en/
 
 ## brute forcing
 hydra -L users.txt -P pass.txt {IP} ssh

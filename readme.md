@@ -2,8 +2,8 @@
 this is a repo with, notes, guides, lists, etc
 this is not really organized or anything,
 best way to view it, is to use vscode,
-(im trying to) implement a graph view, use the foam extension (should be recommended when using vscode)
 
+git pull git pull --recurse-submodules
 
 
 ## viewing on github?

@@ -12,6 +12,7 @@ and make a copy, and use the copy to work with
 ### what the binary/file
 magicbytes are the first x bytes that can help you determine what kynd of file it is fe a picture an executable etc
 a hexeditor can be used to edit these or even any byte of a file
+https://en.wikipedia.org/wiki/List_of_file_signatures
 
 ### strings 
 of files checks valid text strings in files
@@ -28,6 +29,7 @@ peheaders contain a lot of info, "pe studio" allows you to look at these
 
 ### decompiling
 ilspy: .net
+https://dogbolt.org/
 
 ## advanced static analysis
 using ida or Ghidra
@@ -36,6 +38,14 @@ looking at the strings,
 main code,
 edit some function or dissasemble them
 debug, and edit the executables
+
+
+### analyzing code
+https://matthewfl.com/unPacker.html
+
+### decoding
+https://quipqiup.com/
+https://gchq.github.io/CyberChef/
 
 ## dynamic analysis
 ### sandboxes
@@ -67,3 +77,5 @@ log("retval[2] "+ retval[2]);
 in the on leave 
 we can edit these return values:
 args[0] = ptr(1337);
+
+https://www.virustotal.com/gui/home/search
