@@ -1,2 +1,0 @@
-msfconsole
-ilspy

@@ -1,4 +1,6 @@
-# This is a file i'll include things i didn't know and or find after reading some write-ups
+# This is a file, in wich i'll include things i didn't know and or find
+
+But found interesting after reading some write-ups
 
 ## apps
 
@@ -30,7 +32,7 @@ shows what sudo accesses a users have
 
 For this challenge we logged in as user:userpass with ssh and found access to the fry users directory, including its history file, and found the fry user's password, making us able to switch to the fry user.
 
-![sudo-l-picture](./pictures_for_extra/nahamcon-2024-curlly-fries-sudo-l.png)
+![sudo-l-picture](./challenges/pictures_for_extra/nahamcon-2024-curlly-fries-sudo-l.png)
 
 This shows the user fry can execute a certain curl command as root without the need for a password.
 Using `sudo curl 127.0.0.1:8000/health-check file:///etc/shadow`.
@@ -42,7 +44,7 @@ See https://github.com/LazyTitan33/CTF-Writeups/blob/main/Nahamcon-2024/Misc/Cur
 
 For this challenge we logged in as user:userpass with ssh.
 
-![sudo-l-picture](./pictures_for_extra/nahamcon-2024-Jack-Be.png)
+![sudo-l-picture](./challenges/pictures_for_extra/nahamcon-2024-Jack-Be.png)
 
 This shows the user jack can run a use nim run as root without a password.
 So we create a nim project, and file that executes commands.
@@ -73,7 +75,7 @@ And where in jack
 
 In part 1 we logged in to another user.
 
-![sudo-l-picture](./pictures_for_extra/nahamcon-2024-Jack-Be2.png)
+![sudo-l-picture](./challenges/pictures_for_extra/nahamcon-2024-Jack-Be2.png)
 
 From here we can continue with ```sudo -l``` and we can see we can use ```sudo nimble install *``` without a password and can continue escalating our privilege with package you made yourself.
 

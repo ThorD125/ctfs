@@ -1,3 +1,3 @@
-[submodule "lists/SecLists"]
-	path = lists/SecLists
+[submodule "scripts/lists/SecLists"]
+	path = scripts/lists/SecLists
 	url = https://github.com/danielmiessler/SecLists.git

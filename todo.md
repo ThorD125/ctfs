@@ -1,5 +1,11 @@
 # stuff to try and then put on a "correct" place in the step_by_Step
 
+https://www.google.com/advanced_search
+https://10015.io/
+https://appetize.io/
+https://http.cat/status/201
+https://www.rapid7.com/db/
+
 smap => nmap
 smap nmap maar lookup van shodan, dan nmap van die open poorten
 

