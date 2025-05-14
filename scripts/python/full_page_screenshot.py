@@ -1,88 +1,58 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
 from PIL import Image
 import time
 import os
-from dotenv import load_dotenv
-import io
 
-load_dotenv()
+def screenshot_full_scroll_and_stitch(url, output_file='stitched_fullpage.png'):
+    # Headless Chrome setup
+    options = Options()
+    options.add_argument("--headless=new")
+    options.add_argument("--disable-gpu")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--window-size=1920,1080")
 
-options = webdriver.ChromeOptions()
-options.add_experimental_option("debuggerAddress", "localhost:5555")
-driver = webdriver.Chrome(options=options)
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service, options=options)
+    driver.get(url)
+    time.sleep(2)
 
-listOfCheckedProfiles = []
-
-numberOfSearches = 20
-numberOfFriends = 100
-
-def scroll_to_bottom():
-    last_height = driver.execute_script("return document.body.scrollHeight")
-    while True:
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        time.sleep(2)
-        
-        new_height = driver.execute_script("return document.body.scrollHeight")
-        if new_height == last_height:
-            break
-        last_height = new_height
-
-def capture_full_page_screenshot(driver, file_path):
-    # Get the total height of the page
+    # Get total scroll height and viewport height
     total_height = driver.execute_script("return document.body.scrollHeight")
-    # Get the height and width of the viewport
     viewport_height = driver.execute_script("return window.innerHeight")
-    viewport_width = driver.execute_script("return document.body.clientWidth")
-    
-    # Set initial position and scroll step
-    scroll_position = 0
-    scroll_step = viewport_height
-    
-    # List to hold all the screenshots
-    screenshots = []
 
-    # Scroll and capture screenshots
-    while scroll_position < total_height:
-        # Scroll to the current position
-        driver.execute_script(f"window.scrollTo(0, {scroll_position});")
-        time.sleep(1)  # Wait for the page to load
-        
-        # Capture screenshot
-        screenshot = driver.get_screenshot_as_png()
-        screenshots.append(screenshot)
-        
-        # Move to the next scroll position
-        scroll_position += scroll_step
-    
-    # Stitch screenshots together
-    stitched_image = stitch_screenshots(screenshots, viewport_height, total_height, viewport_width)
-    stitched_image.save(file_path)
+    num_screens = (total_height // viewport_height) + 1
+    images = []
 
-def stitch_screenshots(screenshots, viewport_height, total_height, viewport_width):
-    # Create a blank image with the total height and viewport width
-    stitched_image = Image.new('RGB', (viewport_width, total_height))
-    
+    for i in range(num_screens):
+        scroll_y = i * viewport_height
+        driver.execute_script(f"window.scrollTo(0, {scroll_y});")
+        time.sleep(0.2)  # Let content render
+
+        filename = f"part_{i}.png"
+        driver.save_screenshot(filename)
+        images.append(Image.open(filename))
+
+    # Stitch images together
+    stitched_image = Image.new('RGB', (images[0].width, sum(img.height for img in images)))
     offset = 0
-    for screenshot in screenshots:
-        img = Image.open(io.BytesIO(screenshot))
-        # Crop the image to the viewport width to remove any black strips
-        img = img.crop((0, 0, viewport_width, viewport_height))
+    for img in images:
         stitched_image.paste(img, (0, offset))
-        offset += viewport_height
-    
-    return stitched_image
+        offset += img.height
 
-site = "https://nl.wikipedia.org/wiki/Hoofdpagina"
+    stitched_image.save(output_file)
+    print(f"Saved full stitched screenshot to {output_file}")
 
-driver.get(site)
-scroll_to_bottom()
+    # Cleanup
+    for img in images:
+        img.close()
+    for i in range(num_screens):
+        os.remove(f"part_{i}.png")
 
-capture_full_page_screenshot(driver, 'full_page_screenshot.png')
+    driver.quit()
 
-driver.quit()
+# Example usage
+if __name__ == "__main__":
+    screenshot_full_scroll_and_stitch("https://example.com", "example_fullpage_stitched.png")
