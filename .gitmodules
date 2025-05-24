@@ -1,3 +1,6 @@
 [submodule "scripts/lists/SecLists"]
 	path = scripts/lists/SecLists
 	url = https://github.com/danielmiessler/SecLists.git
+[submodule "scripts/html"]
+	path = scripts/html
+	url = https://github.com/ThorD125/interwebs/
