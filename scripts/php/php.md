@@ -30,5 +30,3 @@ listFilesInParentDir($parentDir);
 ?>
 ```
 
-## alternative file extensions
-.php5

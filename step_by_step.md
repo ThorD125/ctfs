@@ -34,8 +34,23 @@ https://crt.sh/
 https://certlogik.com/decoder/
 
 ## remote exploits
+https://ctfsearch.hackmap.win/
+
 ### http/https
 if seeing any url with a number change the number
+
+### xss:
+https://portswigger.net/web-security/cross-site-scripting/cheat-sheet
+
+### upload
+try other file extensions:
+.php5
+
+try adding paths:
+../../pathname
+
+try pdfs:
+with iframes,script,imgs,xml...
 
 ### ftp
 ftp anonymous@{IP}
