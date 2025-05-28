@@ -4,3 +4,6 @@
 [submodule "scripts/html"]
 	path = scripts/html
 	url = https://github.com/ThorD125/interwebs/
+[submodule "scripts/php/webshell-advanced"]
+	path = scripts/php/webshell-advanced
+	url = https://github.com/ThorD125/wwwolf-php-webshell
