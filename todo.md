@@ -163,3 +163,7 @@ veeamclick.be
 reset email functie,
 als reset email heeft en een user id,
 reset email veranderen en dan krijgj misschien email op de attackers email
+
+
+when sending money or other moneytary "values" send parralel requests, example:
+in burp request, send to repeat, edit things, add to group, duplicate request, send- in paralels
